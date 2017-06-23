@@ -1,0 +1,6 @@
+services:
+- hash: e6bbc1cb73148022d6db1b49e897364a91304092
+  hash_length: 7
+  name: downstream-data-import
+  path: /openshift/template.yaml
+  url: https://github.com/baytemp/downstream-data-import/

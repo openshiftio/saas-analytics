@@ -1,0 +1,6 @@
+services:
+- hash: b0bbb2e842501f279c3dfbccad5e89b9529787f7
+  hash_length: 7
+  name: api
+  path: /openshift/template.yaml
+  url: https://github.com/baytemp/server/
