@@ -1,0 +1,7 @@
+contexts:
+- data:
+    output_dir: bay-processed
+    services_dir: bay-services
+    templates_dir: bay-templates
+  name: bay
+current: bay

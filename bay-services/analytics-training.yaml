@@ -1,0 +1,6 @@
+services:
+- hash: 325bc0f9937b4f0c1abb2de14c94936451f18b20
+  hash_length: 7
+  name: analytics-training
+  path: /openshift/template.yaml
+  url: https://github.com/baytemp/analytics/

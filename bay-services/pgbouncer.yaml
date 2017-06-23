@@ -1,0 +1,6 @@
+services:
+- hash: f83d427842c866e35940692e51ea024132c33feb
+  hash_length: 7
+  name: pgbouncer
+  path: /openshift/template.yaml
+  url: https://github.com/baytemp/pgbouncer/

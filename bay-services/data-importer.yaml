@@ -1,0 +1,8 @@
+services:
+- hash: 79b1fdbd84894c02d75549f08b581addb41b2f93
+  hash_length: 7
+  name: data-importer
+  parameters:
+    REPLICAS: 2
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/fabric8-analytics-data-model/
