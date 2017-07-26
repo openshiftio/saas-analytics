@@ -1,5 +1,5 @@
 services:
-- hash: 88218dcdc8e668911014cb6422ba34906a5129b3
+- hash: a3e2de5a2fe643d8fab7119d3692dc0ecb6ce78c
   hash_length: 7
   name: data-importer
   parameters:
