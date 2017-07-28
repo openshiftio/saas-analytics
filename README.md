@@ -1,5 +1,3 @@
-# SaaS - Analytics
+# OpenShift.io Analytics deployment tracking
 
-This repository tracks deployments of fabric8-analytics on OpenShift.io
-
-Docs at http://github.com/openshiftio/saasherder
+For documentation about tooling, process and format, please refer to https://github.com/openshiftio/saasherder
