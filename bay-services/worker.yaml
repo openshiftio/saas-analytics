@@ -13,6 +13,7 @@ services:
 - <<: *worker_def
   name: worker-api
   parameters:
+    WORKER_RUN_DB_MIGRATIONS: 1
     WORKER_ADMINISTRATION_REGION: api
     WORKER_EXCLUDE_QUEUES: GraphImporterTask
 
