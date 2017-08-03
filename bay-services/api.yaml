@@ -1,5 +1,5 @@
 services:
-- hash: 0ba6c5d83b8547ff31e6de09ee81f8303b1ea76b
+- hash: 5f3d40a4231a9ddb1dd12ae69b36700f8f7d1ae5
   hash_length: 7
   name: api
   path: /openshift/template.yaml
