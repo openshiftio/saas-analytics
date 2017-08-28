@@ -3,19 +3,35 @@ services:
   hash: d548a368f6eef45d074c31247be4b6d78736ff36
   hash_length: 7
   name: kronos-pypi
-  parameters:
-    KRONOS_SCORING_REGION: pypi
-    CPU_REQUEST: 2
-    CPU_LIMIT: 2
+  environments:
+  - name: production
+    parameters:
+      KRONOS_SCORING_REGION: pypi
+      CPU_REQUEST: 2
+      CPU_LIMIT: 2
+  - name: staging
+    parameters:
+      KRONOS_SCORING_REGION: pypi
+      CPU_REQUEST: 1
+      CPU_LIMIT: 1
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-stack-analysis/
 
 - <<: *kronos_def
   name: kronos-maven
-  parameters:
-    KRONOS_SCORING_REGION: maven
-    CPU_REQUEST: 2
-    CPU_LIMIT: 2
-    MEMORY_REQUEST: 1024Mi
-    MEMORY_LIMIT: 1024Mi
+  environments:
+  - name: production
+    parameters:
+      KRONOS_SCORING_REGION: maven
+      CPU_REQUEST: 2
+      CPU_LIMIT: 2
+      MEMORY_REQUEST: 1024Mi
+      MEMORY_LIMIT: 1024Mi
+  - name: staging
+    parameters:
+      KRONOS_SCORING_REGION: maven
+      CPU_REQUEST: 1
+      CPU_LIMIT: 1
+      MEMORY_REQUEST: 1024Mi
+      MEMORY_LIMIT: 1024Mi
 
