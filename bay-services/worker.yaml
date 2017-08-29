@@ -3,31 +3,60 @@ services:
   hash: dc436f28b144a991fa73cb6d2aba7736a8202424
   hash_length: 7
   name: worker-ingestion
-  parameters:
-    WORKER_ADMINISTRATION_REGION: ingestion
-    REPLICAS: 6
-    WORKER_EXCLUDE_QUEUES: GraphImporterTask
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: ingestion
+      REPLICAS: 6
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: ingestion
+      REPLICAS: 2
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
 
 - <<: *worker_def
   name: worker-api
-  parameters:
-    WORKER_RUN_DB_MIGRATIONS: 1
-    WORKER_ADMINISTRATION_REGION: api
-    WORKER_EXCLUDE_QUEUES: GraphImporterTask
-    REPLICAS: 4
+  environments:
+  - name: production
+    parameters:
+      WORKER_RUN_DB_MIGRATIONS: 1
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask
+      REPLICAS: 4
+  - name: staging
+    parameters:
+      WORKER_RUN_DB_MIGRATIONS: 1
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask
+      REPLICAS: 2
 
 - <<: *worker_def
   name: worker-ingestion-graph-import
-  parameters:
-    WORKER_ADMINISTRATION_REGION: ingestion
-    WORKER_INCLUDE_QUEUES: GraphImporterTask
-    WORKER_NAME_SUFFIX: '-graph-import'
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
 
 - <<: *worker_def
   name: worker-api-graph-import
-  parameters:
-    WORKER_ADMINISTRATION_REGION: api
-    WORKER_INCLUDE_QUEUES: GraphImporterTask
-    WORKER_NAME_SUFFIX: '-graph-import'
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'

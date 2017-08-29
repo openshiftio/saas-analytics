@@ -2,7 +2,12 @@ services:
 - hash: 0f6d2d8f2e388d4562a0a029ef9485249e529a9d
   hash_length: 7
   name: data-importer
-  parameters:
-    REPLICAS: 4
+  environments:
+  - name: production
+    parameters:
+      REPLICAS: 4
+  - name: staging
+    parameters:
+      REPLICAS: 1
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-data-model/
