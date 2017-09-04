@@ -1,6 +1,6 @@
 services:
 - &worker_def
-  hash: 0de5f2515465bf2dd8b905d4e71bef0ddb411c80
+  hash: 771fb11945ae81f0e0285f11ced21afa0957f94d
   hash_length: 7
   name: worker-ingestion
   environments:
