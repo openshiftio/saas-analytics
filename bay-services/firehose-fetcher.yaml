@@ -1,6 +1,13 @@
 services:
-- hash: 660c81f4c88dcc85be5e8795f944a366ccb346d0
+- hash: e5cff0714bc50e986ab5d2d341a24cae79a172fb 
   hash_length: 7
   name: f8a-firehose-fetcher
+  environments:
+  - name: production
+    parameters:
+      ENABLE_SCHEDULING: 1
+  - name: staging
+    parameters:
+      ENABLE_SCHEDULING: 0
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-firehose-fetcher
