@@ -1,5 +1,5 @@
 services:
-- hash: 86e20fcadb644b5a04595be63f4638bd4cb6f95e 
+- hash: 660c81f4c88dcc85be5e8795f944a366ccb346d0
   hash_length: 7
   name: f8a-firehose-fetcher
   path: /openshift/template.yaml
