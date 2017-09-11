@@ -1,7 +1,7 @@
 services:
 - hash: none
   hash_length: 7
-  name: data-importer
+  name: worker-scaler
   environments:
   - name: production
     parameters:
