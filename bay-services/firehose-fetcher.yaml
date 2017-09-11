@@ -1,5 +1,5 @@
 services:
-- hash: e5cff0714bc50e986ab5d2d341a24cae79a172fb 
+- hash: b698d1cfcd3e90d8a0c3b644eb35535d2be4ef01
   hash_length: 7
   name: f8a-firehose-fetcher
   environments:
