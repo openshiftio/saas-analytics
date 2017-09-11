@@ -7,12 +7,12 @@ services:
   - name: production
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 6
+      REPLICAS: 1
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 2
+      REPLICAS: 1
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
@@ -40,12 +40,12 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
+      REPLICAS: 6
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
+      REPLICAS: 2
 
 - <<: *worker_def
   name: worker-ingestion-graph-import
