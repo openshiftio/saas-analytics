@@ -5,7 +5,7 @@ services:
   environments:
   - name: production
     parameters:
-      ENABLE_SCHEDULING: 1
+      ENABLE_SCHEDULING: 0
   - name: staging
     parameters:
       ENABLE_SCHEDULING: 0
