@@ -7,7 +7,7 @@ services:
   - name: production
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 6
+      REPLICAS: 0
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
   - name: staging
     parameters:
