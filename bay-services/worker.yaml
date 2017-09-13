@@ -1,13 +1,13 @@
 services:
 - &worker_def
-  hash: fc78529caf96b25a2fe60c3f11a941f8ab22d63b
+  hash: 21b7a36ce2683c02503a42a787050da107ceb2ec
   hash_length: 7
   name: worker-ingestion
   environments:
   - name: production
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 0
+      REPLICAS: 22
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
   - name: staging
     parameters:
@@ -40,7 +40,7 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
+      REPLICAS: 3
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
