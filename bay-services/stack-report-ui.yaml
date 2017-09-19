@@ -1,3 +1,4 @@
+services:
 - hash: 1e65285076422e1044723edbbd39c35865824dbe
   hash_length: 7
   name: stack-report-ui
