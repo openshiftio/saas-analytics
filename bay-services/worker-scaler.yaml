@@ -1,5 +1,5 @@
 services:
-- hash: none
+- hash: 
   hash_length: 7
   name: worker-scaler
   environments:
