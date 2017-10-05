@@ -7,7 +7,7 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 3
+      REPLICAS: 0
   - name: staging
     parameters:
       CHANNELIZER: http
