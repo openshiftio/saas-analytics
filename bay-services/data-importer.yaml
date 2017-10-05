@@ -5,7 +5,7 @@ services:
   environments:
   - name: production
     parameters:
-      REPLICAS: 4
+      REPLICAS: 0
   - name: staging
     parameters:
       REPLICAS: 1
