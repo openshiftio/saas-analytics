@@ -74,3 +74,18 @@ services:
       WORKER_ADMINISTRATION_REGION: api
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+
+- <<: *worker_def
+  name: worker-priority-graph-import
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+
