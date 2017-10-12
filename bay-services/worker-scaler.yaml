@@ -5,9 +5,17 @@ services:
   environments:
   - name: production
     parameters:
-      REPLICAS: 1
+      DEFAULT_REPLICAS: 5
+      MAX_REPLICAS: 10
+      DC_NAME: bayesian-worker-ingestion
+      SQS_QUEUE_NAME: ingestion_bayesianFlow_v0
+      OC_PROJECT: bayesian-production
   - name: staging
     parameters:
-      REPLICAS: 1
+      DEFAULT_REPLICAS: 4
+      MAX_REPLICAS: 8
+      DC_NAME: bayesian-worker-ingestion
+      SQS_QUEUE_NAME: ingestion_bayesianFlow_v0
+      OC_PROJECT: bayesian-preview
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-scaler/
