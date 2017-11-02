@@ -1,9 +1,12 @@
 services:
-- hash: 127cbae54e3ceb9818b48277b24f108c1bbf160f
+- hash: 2fe63b49349d92ea0eb94dee8572135abfde1709
   hash_length: 7
   name: api
   environments:
   - name: staging
+    parameters:
+      FLASK_LOGGING_LEVEL: DEBUG
+  - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
   path: /openshift/template.yaml
