@@ -26,12 +26,12 @@ services:
       CPU_REQUEST: 2
       CPU_LIMIT: 2
       MEMORY_REQUEST: 1024Mi
-      MEMORY_LIMIT: 1024Mi
+      MEMORY_LIMIT: 1280Mi
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: maven
       CPU_REQUEST: 1
       CPU_LIMIT: 1
       MEMORY_REQUEST: 1024Mi
-      MEMORY_LIMIT: 1024Mi
+      MEMORY_LIMIT: 1280Mi
 
