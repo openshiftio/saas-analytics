@@ -18,6 +18,7 @@ services:
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
 
 - <<: *worker_def
+  hash: aa32fa78e75740d5833e8cf0ae6ca5b6cc936b90
   name: worker-api
   environments:
   - name: production
@@ -34,6 +35,7 @@ services:
       REPLICAS: 2
 
 - <<: *worker_def
+  hash: aa32fa78e75740d5833e8cf0ae6ca5b6cc936b90
   name: worker-priority
   environments:
   - name: production
@@ -48,6 +50,7 @@ services:
       REPLICAS: 1
 
 - <<: *worker_def
+  hash: aa32fa78e75740d5833e8cf0ae6ca5b6cc936b90
   name: worker-ingestion-graph-import
   environments:
   - name: production
@@ -62,6 +65,7 @@ services:
       WORKER_NAME_SUFFIX: '-graph-import'
 
 - <<: *worker_def
+  hash: aa32fa78e75740d5833e8cf0ae6ca5b6cc936b90
   name: worker-api-graph-import
   environments:
   - name: production
@@ -76,6 +80,7 @@ services:
       WORKER_NAME_SUFFIX: '-graph-import'
 
 - <<: *worker_def
+  hash: aa32fa78e75740d5833e8cf0ae6ca5b6cc936b90
   name: worker-priority-graph-import
   environments:
   - name: production
