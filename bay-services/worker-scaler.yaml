@@ -1,5 +1,5 @@
 services:
-- hash: 
+- hash: 4991c141a380aa584913e364b279a0beda1392be
   hash_length: 7
   name: worker-scaler
   environments:
