@@ -7,12 +7,12 @@ services:
   - name: production
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 10
+      REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 2
+      REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
