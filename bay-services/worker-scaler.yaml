@@ -1,5 +1,5 @@
 services:
-- hash: 64d7fe72a4d7ed2b9af4ee37d85dcc68a7864ebd
+- hash: fbd490270527212e6cee24ef529ed18f77fa0374
   hash_length: 7
   name: worker-scaler
   environments:
@@ -10,7 +10,7 @@ services:
       DC_NAME: bayesian-worker-ingestion
       SQS_QUEUE_NAME: ingestion_bayesianFlow_v0,ingestion_bayesianPackageFlow_v0
       OC_PROJECT: bayesian-production
-      DRY_RUN: true
+      DRY_RUN: false
   - name: staging
     parameters:
       DEFAULT_REPLICAS: 1
