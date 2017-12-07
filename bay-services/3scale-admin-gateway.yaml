@@ -1,5 +1,5 @@
 services:
-- hash: none
+- hash: 719cedc855e0f28497fa07507dd4c8f31d94b278
   hash_length: 7
   name: 3scale-admin-gateway
   path: /openshift/template.yaml
