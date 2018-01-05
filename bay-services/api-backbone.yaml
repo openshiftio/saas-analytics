@@ -1,0 +1,15 @@
+services:
+- hash: 2a01b97cda94c8d33f9d72fddc446aab9fc55136
+  hash_length: 7
+  name: api-backbone 
+  environments:
+  - name: production
+    parameters:
+      CPU_REQUEST: 1
+      CPU_LIMIT: 1
+  - name: staging
+    parameters:
+      CPU_REQUEST: 0.5
+      CPU_LIMIT: 0.5
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/f8a-server-backbone/ 
