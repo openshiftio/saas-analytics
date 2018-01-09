@@ -9,11 +9,13 @@ services:
       KRONOS_SCORING_REGION: pypi
       CPU_REQUEST: 2
       CPU_LIMIT: 2
+      REPLICAS: 0
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: pypi
       CPU_REQUEST: 1
       CPU_LIMIT: 1
+      REPLICAS: 0
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-stack-analysis/
 
@@ -27,6 +29,7 @@ services:
       CPU_LIMIT: 2
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 1280Mi
+      REPLICAS: 1
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: maven
@@ -34,4 +37,5 @@ services:
       CPU_LIMIT: 1
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 1280Mi
+      REPLICAS: 1
 
