@@ -1,5 +1,5 @@
 services:
-- hash: 7a30cedff63612ceb7fe6f9ef5b56bc11ce234c3
+- hash: c1299a4ed385b4e0184a132d634f17709cffaa70
   hash_length: 7
   name: 3scale-apicast-gateway
   path: /openshift/template.yaml
