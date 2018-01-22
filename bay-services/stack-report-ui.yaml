@@ -1,5 +1,5 @@
 services:
-- hash: 5239662669ea12d24fd8774037edae3a61aba0e3
+- hash: 2c7520faefadd62c05a9fff6fa6375d1326991bf
   hash_length: 7
   name: stack-report-ui
   path: /openshift/template.yaml
