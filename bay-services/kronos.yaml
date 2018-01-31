@@ -29,7 +29,7 @@ services:
       CPU_LIMIT: 2
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 1280Mi
-      REPLICAS: 1
+      REPLICAS: 3
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: maven
