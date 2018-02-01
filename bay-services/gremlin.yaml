@@ -1,5 +1,5 @@
 services:
-- hash: c0f3d334e56206ec2b4e9107f715b85342e2a351
+- hash: fe8e3b821c1ee0b1de02b589c992e3df36d55f0c
   hash_length: 7
   name: gremlin-http
   environments:
@@ -12,6 +12,6 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 2
+      REPLICAS: 1 
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
