@@ -25,7 +25,7 @@ services:
       WORKER_RUN_DB_MIGRATIONS: 1
       WORKER_ADMINISTRATION_REGION: api
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 4
+      REPLICAS: 0
       MEMORY_LIMIT: 1024Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
@@ -34,7 +34,7 @@ services:
       WORKER_RUN_DB_MIGRATIONS: 1
       WORKER_ADMINISTRATION_REGION: api
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 2
+      REPLICAS: 0
       MEMORY_LIMIT: 1024Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
@@ -75,11 +75,13 @@ services:
       WORKER_ADMINISTRATION_REGION: api
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      REPLICAS: 0
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      REPLICAS: 0
 
 - <<: *worker_def
   name: worker-priority-graph-import
