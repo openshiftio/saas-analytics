@@ -1,5 +1,5 @@
 services:
-- hash: 73bf3c84e4f9147be7ea1a46609c2baba164b27f
+- hash: 78a9d55cc2d72fd90da2fd8ff3024c5504ea8add
   hash_length: 7
   name: f8a-3scale-connect-api
   path: /openshift/template.yaml
