@@ -8,12 +8,12 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
       REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
       REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
 
@@ -97,3 +97,43 @@ services:
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
 
+- <<: *worker_def
+  name: worker-api-dispatcher
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api 
+      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+
+- <<: *worker_def
+  name: worker-ingestion-dispatcher
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_NAME_SUFFIX: '-dispatcher'
+
+- <<: *worker_def
+  name: worker-priority-dispatcher
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
