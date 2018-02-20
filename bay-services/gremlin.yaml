@@ -17,7 +17,7 @@ services:
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
 
-- <<: gremlin_def:
+- <<: gremlin_def
   name: gremlin-http-ingestion
   environments:
   - name: production
