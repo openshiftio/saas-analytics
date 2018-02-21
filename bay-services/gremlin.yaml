@@ -1,5 +1,6 @@
 services:
-- hash: fe8e3b821c1ee0b1de02b589c992e3df36d55f0c
+- &gremlin_def
+  hash: 59adef83b50e63430302e5899396d8d77fb7295a
   hash_length: 7
   name: gremlin-http
   environments:
@@ -11,6 +12,24 @@ services:
   - name: staging
     parameters:
       CHANNELIZER: http
+      REST_VALUE: 1
+      REPLICAS: 1
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/gremlin-docker/
+
+- <<: *gremlin_def
+  name: gremlin-http-ingestion
+  environments:
+  - name: production
+    parameters:
+      CHANNELIZER: http
+      QUERY_ADMINISTRATION_REGION: ingestion
+      REST_VALUE: 1
+      REPLICAS: 3
+  - name: staging
+    parameters:
+      CHANNELIZER: http
+      QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
       REPLICAS: 1
   path: /openshift/template.yaml
