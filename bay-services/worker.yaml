@@ -1,11 +1,12 @@
 services:
 - &worker_def
-  hash: 637034f050dacf8f10e803e92487c5b1b42cd93c
+  hash: 37253261c331c140069490677aa8eb010b660528 
   hash_length: 7
   name: worker-ingestion
   environments:
   - name: production
     parameters:
+      SENTRY_DSN: "https://ab4cf0c4de874c6391c9af9015b492e5:4cd47da8edd643c6b9371dcec6b5da07@errortracking.prod-preview.openshift.io/19"
       WORKER_ADMINISTRATION_REGION: ingestion
       REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
