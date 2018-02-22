@@ -1,5 +1,5 @@
 services:
-- hash: 0a9ef5b7e1560fefec6792aa1a5ef5af3854b888
+- hash: 502a156ef5e722e92f4ae5213866495dcb00e3fe
   hash_length: 7
   name: data-importer
   environments:
