@@ -6,12 +6,14 @@ services:
   environments:
   - name: production
     parameters:
+      WORKER_RUN_DB_MIGRATIONS: 1
       SENTRY_DSN: "https://ab4cf0c4de874c6391c9af9015b492e5:4cd47da8edd643c6b9371dcec6b5da07@errortracking.prod-preview.openshift.io/19"
       WORKER_ADMINISTRATION_REGION: ingestion
       REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
       WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
   - name: staging
     parameters:
+      WORKER_RUN_DB_MIGRATIONS: 1
       SENTRY_DSN: "https://f3ea75001f144d1899912a6d00a2874d:91b48c7d8a304857862a32da03353f96@errortracking.prod-preview.openshift.io/18"
       WORKER_ADMINISTRATION_REGION: ingestion
       REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
@@ -24,7 +26,6 @@ services:
   environments:
   - name: production
     parameters:
-      WORKER_RUN_DB_MIGRATIONS: 1
       WORKER_ADMINISTRATION_REGION: api
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
       REPLICAS: 0
@@ -33,7 +34,6 @@ services:
       CPU_LIMIT: 500m
   - name: staging
     parameters:
-      WORKER_RUN_DB_MIGRATIONS: 1
       WORKER_ADMINISTRATION_REGION: api
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
       REPLICAS: 0
