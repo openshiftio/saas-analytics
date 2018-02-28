@@ -36,6 +36,6 @@ services:
       CPU_REQUEST: 1
       CPU_LIMIT: 1
       MEMORY_REQUEST: 1024Mi
-      MEMORY_LIMIT: 1280Mi
+      MEMORY_LIMIT: 2048Mi
       REPLICAS: 1
 
