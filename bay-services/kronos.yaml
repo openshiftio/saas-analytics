@@ -1,6 +1,6 @@
 services:
 - &kronos_def
-  hash: 90aae0eb644c7bfe182a2fcba916aedf092a9d85
+  hash: 86c8cec68b3773b32d08f294802714edadd6fb56
   hash_length: 7
   name: kronos-pypi
   environments:
@@ -28,7 +28,7 @@ services:
       CPU_REQUEST: 2
       CPU_LIMIT: 2
       MEMORY_REQUEST: 1024Mi
-      MEMORY_LIMIT: 1280Mi
+      MEMORY_LIMIT: 2048Mi
       REPLICAS: 3
   - name: staging
     parameters:
