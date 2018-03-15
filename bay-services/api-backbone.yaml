@@ -8,7 +8,6 @@ services:
       CPU_REQUEST: 0.25
       CPU_LIMIT: 1
       REPLICAS: 3
-      FLASK_LOGGING_LEVEL: DEBUG
   - name: staging
     parameters:
       CPU_REQUEST: 0.25
