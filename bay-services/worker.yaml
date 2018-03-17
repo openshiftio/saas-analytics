@@ -48,7 +48,7 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 4
+      REPLICAS: 1
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
