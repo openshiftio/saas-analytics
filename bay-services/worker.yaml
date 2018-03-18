@@ -106,12 +106,21 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: api 
       WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      REPLICAS: 0
       WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
       WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
       WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
 
 - <<: *worker_def
   name: worker-ingestion-dispatcher
@@ -120,11 +129,20 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
       WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      REPLICAS: 2
       WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
       WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_LIMIT: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
 
 - <<: *worker_def
   name: worker-priority-dispatcher
@@ -134,8 +152,16 @@ services:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
       WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
       WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
