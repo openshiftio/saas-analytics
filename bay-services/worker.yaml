@@ -139,7 +139,7 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
       WORKER_NAME_SUFFIX: '-dispatcher'
-      MEMORY_LIMIT: 256Mi
+      MEMORY_REQUEST: 256Mi
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
