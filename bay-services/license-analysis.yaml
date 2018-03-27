@@ -1,5 +1,5 @@
 services:
-- hash: 2d8fc3ede7e85cee7720f4eb41066d5fb688aa75
+- hash: 2ee4f0986dcc79f5a7628d481ff2f2f4de830cbe
   hash_length: 7
   name: license-analysis
   path: /openshift/template.yaml
