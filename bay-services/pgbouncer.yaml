@@ -1,5 +1,5 @@
 services:
-- hash: 068be9c63a4f9fb129c9e5653d4c2052d24bd5c6
+- hash: 88b99fa19c8fbb931b0e61a581caa587faaaf442
   hash_length: 7
   name: fabric8-analytics-pgbouncer
   path: /openshift/template.yaml
