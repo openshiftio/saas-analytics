@@ -1,6 +1,6 @@
 services:
 - &kronos_def
-  hash: 56b176b8e4f9d48ea104c089c714c6d65f2931c4
+  hash: 3fba04e9c31f44074db7c9bb33b994d22377188a
   hash_length: 7
   name: kronos-pypi
   environments:
