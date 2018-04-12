@@ -1,0 +1,13 @@
+services:
+- hash:
+  hash_length: 7
+  name: f8a-chester
+  environments:
+  - name: staging
+    parameters:
+      REPLICAS: 1
+      CPU_REQUEST: 0.30
+      CPU_LIMIT: 0.30
+      FLASK_LOGGING_LEVEL: DEBUG
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/fabric8-analytics-npm-insights/
