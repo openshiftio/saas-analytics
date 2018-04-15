@@ -1,11 +1,10 @@
 services:
-- hash:
+- hash: 8eb7ee9aa81c1f384b8db8597c758c52cf812790
   hash_length: 7
   name: f8a-chester
   environments:
   - name: staging
     parameters:
-      REPLICAS: 1
       CPU_REQUEST: 0.30
       CPU_LIMIT: 0.30
       FLASK_LOGGING_LEVEL: DEBUG
