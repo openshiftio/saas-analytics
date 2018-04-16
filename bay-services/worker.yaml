@@ -1,6 +1,6 @@
 services:
 - &worker_def
-  hash: c06a3a933014dff553579928632c0e2e0d79e658
+  hash: 2e3521c425144d88dc615fbe4512c2baf76b723d
   hash_length: 7
   name: worker-ingestion
   environments:
@@ -28,7 +28,7 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: api
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 0
+      REPLICAS: 1
       MEMORY_LIMIT: 1024Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
@@ -36,7 +36,7 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: api
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 0
+      REPLICAS: 1
       MEMORY_LIMIT: 1024Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
@@ -48,7 +48,7 @@ services:
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
+      REPLICAS: 3
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
