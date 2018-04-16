@@ -1,5 +1,5 @@
 services:
-- hash: 8eb7ee9aa81c1f384b8db8597c758c52cf812790
+- hash: none
   hash_length: 7
   name: f8a-chester
   environments:
