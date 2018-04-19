@@ -138,6 +138,7 @@ services:
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
       WORKER_NAME_SUFFIX: '-dispatcher'
       MEMORY_REQUEST: 256Mi
       MEMORY_LIMIT: 320Mi
