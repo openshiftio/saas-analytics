@@ -14,7 +14,7 @@ services:
   - name: staging
     parameters:
       DEFAULT_REPLICAS: 1
-      MAX_REPLICAS: 4
+      MAX_REPLICAS: 2
       DC_NAME: bayesian-worker-ingestion
       SQS_QUEUE_NAME: ingestion_bayesianFlow_v0,ingestion_bayesianPackageFlow_v0
       OC_PROJECT: bayesian-preview
