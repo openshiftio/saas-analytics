@@ -1,8 +1,15 @@
 services:
-- hash: none
+- hash: 2a411b57e99854b28c8c519d5d65775db87b423a
   hash_length: 7
   name: gemini
   environments:
+  - name: production
+    parameters:
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 512Mi
+      CPU_REQUEST: 125m
+      CPU_LIMIT: 500m
+      REPLICAS: 3
   - name: staging
     parameters:
       REPLICAS: 1
