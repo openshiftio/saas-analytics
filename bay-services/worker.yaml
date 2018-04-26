@@ -1,4 +1,5 @@
 services:
+# INGESTION WORKERS
 - &worker_def
   hash: 2e3521c425144d88dc615fbe4512c2baf76b723d
   hash_length: 7
@@ -7,54 +8,27 @@ services:
   - name: production
     parameters:
       WORKER_RUN_DB_MIGRATIONS: 1
-      SENTRY_DSN: "https://ab4cf0c4de874c6391c9af9015b492e5:4cd47da8edd643c6b9371dcec6b5da07@errortracking.prod-preview.openshift.io/19"
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
       WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
   - name: staging
     parameters:
       WORKER_RUN_DB_MIGRATIONS: 1
-      SENTRY_DSN: "https://f3ea75001f144d1899912a6d00a2874d:91b48c7d8a304857862a32da03353f96@errortracking.prod-preview.openshift.io/18"
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
       WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
 
-- <<: *worker_def
-  name: worker-api
-  environments:
-  - name: production
-    parameters:
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
-      MEMORY_LIMIT: 1024Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 500m
-  - name: staging
-    parameters:
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
-      MEMORY_LIMIT: 1024Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 500m
-
-- <<: *worker_def
-  name: worker-priority
-  environments:
-  - name: production
-    parameters:
-      WORKER_ADMINISTRATION_REGION: priority
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 3
-  - name: staging
-    parameters:
-      WORKER_ADMINISTRATION_REGION: priority
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
-
+## GRAPH IMPORT
 - <<: *worker_def
   name: worker-ingestion-graph-import
   environments:
@@ -63,28 +37,72 @@ services:
       WORKER_ADMINISTRATION_REGION: ingestion
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
 
+## INGESTION DISPATCHER
 - <<: *worker_def
-  name: worker-api-graph-import
+  name: worker-ingestion-dispatcher
   environments:
   - name: production
     parameters:
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_INCLUDE_QUEUES: GraphImporterTask
-      WORKER_NAME_SUFFIX: '-graph-import'
-      REPLICAS: 0
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 2
   - name: staging
     parameters:
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_INCLUDE_QUEUES: GraphImporterTask
-      WORKER_NAME_SUFFIX: '-graph-import'
-      REPLICAS: 0
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
 
+# -----------------------------------------------------------------------------
+# PRIORITY WORKERS
+- <<: *worker_def
+  name: worker-priority
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      REPLICAS: 3
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      REPLICAS: 1
+
+## GRAPH IMPORT
 - <<: *worker_def
   name: worker-priority-graph-import
   environments:
@@ -93,58 +111,23 @@ services:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
 
-- <<: *worker_def
-  name: worker-api-dispatcher
-  environments:
-  - name: production
-    parameters:
-      WORKER_ADMINISTRATION_REGION: api 
-      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
-      REPLICAS: 0
-      WORKER_NAME_SUFFIX: '-dispatcher'
-      MEMORY_REQUEST: 256Mi
-      MEMORY_LIMIT: 320Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 350m
-  - name: staging
-    parameters:
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
-      WORKER_NAME_SUFFIX: '-dispatcher'
-      MEMORY_REQUEST: 256Mi
-      MEMORY_LIMIT: 320Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 350m
-
-- <<: *worker_def
-  name: worker-ingestion-dispatcher
-  environments:
-  - name: production
-    parameters:
-      WORKER_ADMINISTRATION_REGION: ingestion
-      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
-      REPLICAS: 2
-      WORKER_NAME_SUFFIX: '-dispatcher'
-      MEMORY_REQUEST: 256Mi
-      MEMORY_LIMIT: 320Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 350m
-  - name: staging
-    parameters:
-      WORKER_ADMINISTRATION_REGION: ingestion
-      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
-      WORKER_NAME_SUFFIX: '-dispatcher'
-      MEMORY_REQUEST: 256Mi
-      MEMORY_LIMIT: 320Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 350m
-
+## PRIORITY DISPATCHER
 - <<: *worker_def
   name: worker-priority-dispatcher
   environments:
@@ -157,6 +140,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
+      REPLICAS: 1
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
@@ -166,3 +150,78 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
+      REPLICAS: 1
+
+# -----------------------------------------------------------------------------
+# API WORKERS
+- <<: *worker_def
+  name: worker-api
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 1024Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 500m
+      REPLICAS: 1
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 1024Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 500m
+      REPLICAS: 1
+
+## GRAPH IMPORT
+- <<: *worker_def
+  name: worker-api-graph-import
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+
+## API DISPATCHER
+- <<: *worker_def
+  name: worker-api-dispatcher
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
