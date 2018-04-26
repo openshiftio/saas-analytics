@@ -1,7 +1,7 @@
 services:
 # INGESTION WORKERS
 - &worker_def
-  hash: 2e3521c425144d88dc615fbe4512c2baf76b723d
+  hash: 6f2c8262efd9e725a00b1413fddea3514ee01b7b
   hash_length: 7
   name: worker-ingestion
   environments:
@@ -14,7 +14,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
-      REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
+      REPLICAS: 8  # can be overridden by scaler, see worker-scaler.yaml
   - name: staging
     parameters:
       WORKER_RUN_DB_MIGRATIONS: 1
@@ -165,7 +165,7 @@ services:
       MEMORY_LIMIT: 1024Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      REPLICAS: 1
+      REPLICAS: 3
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
