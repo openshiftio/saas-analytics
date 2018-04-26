@@ -1,7 +1,7 @@
 services:
 - hash: none
   hash_length: 7
-  name: f8a-chester
+  name: f8a-npm-insights
   environments:
   - name: staging
     parameters:
