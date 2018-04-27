@@ -6,6 +6,7 @@ services:
   - name: staging
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
