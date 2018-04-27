@@ -14,5 +14,6 @@ services:
       CPU_REQUEST: 0.25
       CPU_LIMIT: 1
       FLASK_LOGGING_LEVEL: DEBUG
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-server-backbone/ 
