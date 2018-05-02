@@ -1,5 +1,5 @@
 services:
-- hash: 49720a9c256530cbd3637a16f2bbf3ce95e5d5d5
+- hash: e7571edfe33c1e7dfbc6e7025f1dcb1971d9de7b
   hash_length: 7
   name: gemini
   environments:
@@ -10,6 +10,7 @@ services:
       CPU_REQUEST: 125m
       CPU_LIMIT: 500m
       REPLICAS: 3
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       REPLICAS: 1
