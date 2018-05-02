@@ -25,6 +25,7 @@ services:
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
       REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
 
@@ -52,6 +53,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
 
 ## INGESTION DISPATCHER
 - <<: *worker_def
@@ -77,6 +79,7 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
 
 # -----------------------------------------------------------------------------
 # PRIORITY WORKERS
@@ -101,6 +104,7 @@ services:
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
 
 ## GRAPH IMPORT
 - <<: *worker_def
@@ -126,6 +130,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
 
 ## PRIORITY DISPATCHER
 - <<: *worker_def
@@ -151,6 +156,7 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
 
 # -----------------------------------------------------------------------------
 # API WORKERS
@@ -175,6 +181,7 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
 
 ## GRAPH IMPORT
 - <<: *worker_def
@@ -200,6 +207,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
 
 ## API DISPATCHER
 - <<: *worker_def
@@ -225,3 +233,4 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
