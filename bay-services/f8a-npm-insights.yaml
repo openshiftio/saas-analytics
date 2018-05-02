@@ -8,6 +8,7 @@ services:
       CPU_REQUEST: 0.30
       CPU_LIMIT: 0.30
       FLASK_LOGGING_LEVEL: DEBUG
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: production
     parameters:
       CPU_REQUEST: 0.30
