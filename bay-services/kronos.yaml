@@ -1,6 +1,6 @@
 services:
 - &kronos_def
-  hash: 3600ad1b10ec1b64f42be1eb2eb0b39650299c4d
+  hash: 4364f0801753db7021f47679add6982fec5c40da
   hash_length: 7
   name: kronos-pypi
   environments:
@@ -10,6 +10,7 @@ services:
       CPU_REQUEST: 2
       CPU_LIMIT: 2
       REPLICAS: 0
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: pypi
@@ -31,6 +32,7 @@ services:
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 2048Mi
       REPLICAS: 3
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: maven
