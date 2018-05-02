@@ -1,5 +1,5 @@
 services:
-- hash: 1fdb3642045bfb8e08d359027c53486709903a95
+- hash: 7816c485e2a0056bb5548631c5efd742208dcfb4
   hash_length: 7
   name: api-backbone 
   environments:
@@ -9,6 +9,7 @@ services:
       CPU_LIMIT: 1
       REPLICAS: 3
       FLASK_LOGGING_LEVEL: DEBUG
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       CPU_REQUEST: 0.25
