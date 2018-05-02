@@ -1,11 +1,12 @@
 services:
-- hash: bbd3d226ea1e6cf73c2716b2b4fa6a0b58fe1894
+- hash: d94db68fb96303daf08f1dc56e9bc788d12ad5ad
   hash_length: 7
   name: f8a-firehose-fetcher
   environments:
   - name: production
     parameters:
       ENABLE_SCHEDULING: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       ENABLE_SCHEDULING: 0
