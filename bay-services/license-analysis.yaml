@@ -1,8 +1,11 @@
 services:
-- hash: 254e67ccb7e35107fafa6f41bc2fb418d0c55553
+- hash: 8a028a2ca4043bc021ce549d7cb5553b2359b5e3
   hash_length: 7
   name: license-analysis
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
