@@ -1,10 +1,13 @@
 services:
-- hash: 88b99fa19c8fbb931b0e61a581caa587faaaf442
+- hash: 08ce8cf110c6498fe0a1c61631822b1964d33612
   hash_length: 7
   name: fabric8-analytics-pgbouncer
   environments:
-   - name: staging
-     parameters:
-       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+  - name: staging
+    parameters:
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-pgbouncer/
