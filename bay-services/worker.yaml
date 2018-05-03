@@ -1,7 +1,7 @@
 services:
 # INGESTION WORKERS
 - &worker_def
-  hash: 82af665696aa6a73235ad02816664637ebd026c4
+  hash: 3cdfe6c1665afd6aa63c61931f003f3cc8ca5ed6
   hash_length: 7
   name: worker-ingestion
   environments:
@@ -15,6 +15,7 @@ services:
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
       REPLICAS: 8  # can be overridden by scaler, see worker-scaler.yaml
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_RUN_DB_MIGRATIONS: 1
@@ -43,6 +44,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
@@ -69,6 +71,7 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 2
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
@@ -95,6 +98,7 @@ services:
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
       REPLICAS: 3
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
@@ -120,6 +124,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
@@ -146,6 +151,7 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
@@ -172,6 +178,7 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
       REPLICAS: 3
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
@@ -197,6 +204,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
@@ -223,6 +231,7 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
