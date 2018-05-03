@@ -2,5 +2,9 @@ services:
 - hash: 30c21b69d3a6ec5eeadaf7c589acd9112412d9d8
   hash_length: 7
   name: jobs
+  environments:
+  - name: staging
+    parameters:
+       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-jobs/
