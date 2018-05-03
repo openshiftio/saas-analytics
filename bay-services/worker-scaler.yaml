@@ -11,6 +11,7 @@ services:
       SQS_QUEUE_NAME: ingestion_bayesianFlow_v0,ingestion_bayesianPackageFlow_v0
       OC_PROJECT: bayesian-production
       DRY_RUN: false
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       DEFAULT_REPLICAS: 1
