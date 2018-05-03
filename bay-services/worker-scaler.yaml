@@ -19,5 +19,6 @@ services:
       SQS_QUEUE_NAME: ingestion_bayesianFlow_v0,ingestion_bayesianPackageFlow_v0
       OC_PROJECT: bayesian-preview
       DRY_RUN: false
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-scaler/
