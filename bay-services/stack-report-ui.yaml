@@ -2,5 +2,9 @@ services:
 - hash: 045d4ea43356ee72b7a0db451705f5dd82accfd6
   hash_length: 7
   name: stack-report-ui
+  environments:
+  - name: staging
+    parameters:
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-stack-report-ui/
