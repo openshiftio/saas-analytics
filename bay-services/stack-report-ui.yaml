@@ -1,8 +1,11 @@
 services:
-- hash: 045d4ea43356ee72b7a0db451705f5dd82accfd6
+- hash: b53be9eee6140c9f9622d14368527ae9fd12f180
   hash_length: 7
   name: stack-report-ui
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
