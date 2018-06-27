@@ -1,5 +1,5 @@
 services:
-- hash: 08ce8cf110c6498fe0a1c61631822b1964d33612
+- hash: c99fc6eaec6042c0edd796011ef60dd5bef6687e
   hash_length: 7
   name: fabric8-analytics-pgbouncer
   environments:
