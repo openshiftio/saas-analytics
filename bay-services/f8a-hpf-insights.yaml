@@ -2,7 +2,7 @@ services:
 - &f8a-hpf-insights_def
   hash: 66f4d3cb2693d200797d3fe705e66e7ce3ab317d
   hash_length: 7
-  name: f8a-maven-hpf-insghts
+  name: f8a-hpf-insghts-maven
   environments:
   - name: production
     parameters:
@@ -23,4 +23,4 @@ services:
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
       RESTART_POLICY: Always
   path: /openshift/template.yaml
-  url: https://github.com/fabric8-analytics/f8a-hpf-insghts/
+  url: https://github.com/fabric8-analytics/f8a-hpf-insights/
