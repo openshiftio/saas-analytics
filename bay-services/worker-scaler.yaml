@@ -5,7 +5,7 @@ services:
   environments:
   - name: production
     parameters:
-      DEFAULT_REPLICAS: 5
+      DEFAULT_REPLICAS: 0
       MAX_REPLICAS: 10
       DC_NAME: bayesian-worker-ingestion
       SQS_QUEUE_NAME: ingestion_bayesianFlow_v0,ingestion_bayesianPackageFlow_v0
