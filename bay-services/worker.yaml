@@ -14,7 +14,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
-      REPLICAS: 0  # can be overridden by scaler, see worker-scaler.yaml
+      REPLICAS: 8  # can be overridden by scaler, see worker-scaler.yaml
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
@@ -70,7 +70,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 0
+      REPLICAS: 2
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
