@@ -10,7 +10,7 @@ services:
       CPU_REQUEST: 1
       CPU_LIMIT: 1.5
       REPLICAS: 0
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
   - name: staging
     parameters:
@@ -20,7 +20,7 @@ services:
       MEMORY_REQUEST: 1536Mi
       MEMORY_LIMIT: 1536Mi
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-hpf-insights/
