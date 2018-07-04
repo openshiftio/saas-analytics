@@ -1,6 +1,6 @@
 services:
 - &gremlin_def
-  hash: 34c03514009c7c66290a793275ba245c7873d653
+  hash: f324d14855aa8c322da027c5a232e9914c6c9db8
   hash_length: 7
   name: gremlin-http
   environments:
@@ -8,7 +8,7 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 3
+      REPLICAS: 0
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
@@ -27,7 +27,7 @@ services:
       CHANNELIZER: http
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
-      REPLICAS: 3
+      REPLICAS: 0
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
