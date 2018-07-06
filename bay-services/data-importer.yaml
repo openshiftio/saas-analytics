@@ -5,7 +5,7 @@ services:
   environments:
   - name: production
     parameters:
-      REPLICAS: 0
+      REPLICAS: 2
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
