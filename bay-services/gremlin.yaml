@@ -8,13 +8,13 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 1
+      REPLICAS: 0
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 1
+      REPLICAS: 0
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
@@ -34,7 +34,7 @@ services:
       CHANNELIZER: http
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
-      REPLICAS: 1
+      REPLICAS: 0
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
