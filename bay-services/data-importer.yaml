@@ -1,11 +1,11 @@
 services:
-- hash: 8a237cf9e3cd31438358ddf8e034a8735a27f012
+- hash: 8ac09b6c3ad6b5fb08ddb02a473145a74fccf59f
   hash_length: 7
   name: data-importer
   environments:
   - name: production
     parameters:
-      REPLICAS: 2
+      REPLICAS: 0
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
