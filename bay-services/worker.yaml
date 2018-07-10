@@ -43,7 +43,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
@@ -123,7 +123,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
@@ -203,7 +203,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
   - name: staging
     parameters:
