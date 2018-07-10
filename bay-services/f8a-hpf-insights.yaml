@@ -1,6 +1,6 @@
 services:
 - &f8a-hpf-insights_def
-  hash:
+  hash: d971c87d0eadc293ef264631fe6b7e2f0fa41a39
   hash_length: 7
   name: f8a-hpf-insights-maven
   environments:
@@ -11,7 +11,7 @@ services:
       CPU_LIMIT: 1.5
       MEMORY_REQUEST: 1536Mi
       MEMORY_LIMIT: 1536Mi
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
   - name: staging
     parameters:
