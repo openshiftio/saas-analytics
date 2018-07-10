@@ -11,6 +11,7 @@ services:
       CPU_LIMIT: 2
       REPLICAS: 0
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/kronos
       RESTART_POLICY: Always
   - name: staging
     parameters:
@@ -18,7 +19,8 @@ services:
       CPU_REQUEST: 1
       CPU_LIMIT: 1
       REPLICAS: 0
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
       RESTART_POLICY: Always
   path: /openshift/template-prod.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-stack-analysis/
@@ -35,6 +37,7 @@ services:
       MEMORY_LIMIT: 2048Mi
       REPLICAS: 3
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/kronos
       RESTART_POLICY: Always
   - name: staging
     parameters:
@@ -44,6 +47,7 @@ services:
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 2048Mi
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
       RESTART_POLICY: Always
 
