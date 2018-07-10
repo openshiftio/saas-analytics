@@ -6,7 +6,8 @@ services:
   - name: staging
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
