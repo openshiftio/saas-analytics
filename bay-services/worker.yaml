@@ -1,7 +1,7 @@
 services:
 # INGESTION WORKERS
 - &worker_def
-  hash: 66c688e6724a5c3167e2d527f7642f469cfb2a33
+  hash: e07f9130e13ac139b89fd4426209c1c8c47d35d0
   hash_length: 7
   name: worker-ingestion
   environments:
@@ -16,6 +16,7 @@ services:
       CPU_LIMIT: 500m
       REPLICAS: 8  # can be overridden by scaler, see worker-scaler.yaml
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_RUN_DB_MIGRATIONS: 1
@@ -26,7 +27,8 @@ services:
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
       REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
 
@@ -45,6 +47,7 @@ services:
       CPU_LIMIT: 200m
       REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
@@ -55,7 +58,8 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
 ## INGESTION DISPATCHER
 - <<: *worker_def
@@ -72,6 +76,7 @@ services:
       CPU_LIMIT: 350m
       REPLICAS: 2
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
@@ -82,7 +87,8 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
 # -----------------------------------------------------------------------------
 # PRIORITY WORKERS
@@ -99,6 +105,7 @@ services:
       CPU_LIMIT: 500m
       REPLICAS: 3
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
@@ -108,7 +115,8 @@ services:
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
 ## GRAPH IMPORT
 - <<: *worker_def
@@ -125,6 +133,7 @@ services:
       CPU_LIMIT: 200m
       REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
@@ -135,7 +144,8 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
 ## PRIORITY DISPATCHER
 - <<: *worker_def
@@ -152,6 +162,7 @@ services:
       CPU_LIMIT: 350m
       REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
@@ -162,7 +173,8 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
 # -----------------------------------------------------------------------------
 # API WORKERS
@@ -179,6 +191,7 @@ services:
       CPU_LIMIT: 500m
       REPLICAS: 3
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
@@ -188,7 +201,8 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
 ## GRAPH IMPORT
 - <<: *worker_def
@@ -205,6 +219,7 @@ services:
       CPU_LIMIT: 200m
       REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
@@ -215,7 +230,8 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
 ## API DISPATCHER
 - <<: *worker_def
@@ -232,6 +248,7 @@ services:
       CPU_LIMIT: 350m
       REPLICAS: 1
       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_IMAGE: bayesian/cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
@@ -242,4 +259,5 @@ services:
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
       REPLICAS: 1
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
