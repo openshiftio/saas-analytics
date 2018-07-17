@@ -1,12 +1,13 @@
 services:
-- hash: 7d443f8995ff5c07f316a3b98547e9660caf2db3
+- hash: 96a4a8b516c4c915a0bcbefb402e1cba4ceb73d1
   hash_length: 7
   name: api
   environments:
   - name: staging
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
