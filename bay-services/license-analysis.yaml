@@ -1,12 +1,12 @@
 services:
-- hash: 97aaa3ddb19a002fcda224a84517d94ec3a1fc4e
+- hash: 6e0fdb2cef317cb0828f34a65d7071e05eadf641
   hash_length: 7
   name: license-analysis
   environments:
   - name: production
     parameters:
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: fabric8-analytics/license-analysis
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-license-analysis
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
