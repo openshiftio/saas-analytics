@@ -1,12 +1,12 @@
 services:
-- hash: 35a104c22d29e24ae72243a99667f11208a5cb14
+- hash: 8e996bc18f46fd12a422975650e64137cc544513
   hash_length: 7
   name: f8a-3scale-connect-api
   environments:
   - name: production
     parameters:
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: fabric8-analytics/f8a-3scale-connect-api
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-3scale-connect-api
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
