@@ -1,6 +1,6 @@
 services:
 - &gremlin_def
-  hash: f324d14855aa8c322da027c5a232e9914c6c9db8
+  hash: d06d6db0f32e6dd2b4226c9672fb41a1261ae40e
   hash_length: 7
   name: gremlin-http
   environments:
@@ -9,8 +9,8 @@ services:
       CHANNELIZER: http
       REST_VALUE: 1
       REPLICAS: 3
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: bayesian/gremlin
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
   - name: staging
     parameters:
       CHANNELIZER: http
@@ -30,8 +30,8 @@ services:
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
       REPLICAS: 3
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: bayesian/gremlin
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
   - name: staging
     parameters:
       CHANNELIZER: http
