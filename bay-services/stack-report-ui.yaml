@@ -1,12 +1,12 @@
 services:
-- hash: b53be9eee6140c9f9622d14368527ae9fd12f180
+- hash: a89ae0ef2c4def92d4d5445ce00719893b427627
   hash_length: 7
   name: stack-report-ui
   environments:
   - name: production
     parameters:
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: fabric8-analytics-stack-report-ui
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-stack-report-ui
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
