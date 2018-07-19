@@ -1,12 +1,12 @@
 services:
-- hash: c99fc6eaec6042c0edd796011ef60dd5bef6687e
+- hash: d658a106ef51935d2de52630dce29763b8444e46
   hash_length: 7
   name: fabric8-analytics-pgbouncer
   environments:
   - name: production
     parameters:
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: bayesian/coreapi-pgbouncer
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-coreapi-pgbouncer
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
