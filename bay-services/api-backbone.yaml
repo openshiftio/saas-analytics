@@ -1,5 +1,5 @@
 services:
-- hash: 779e67cd4a446f1136eb2f6292fac69927aec4f8
+- hash: 18e0d28da8a104e531ed65d899b2fcbfda1a9620
   hash_length: 7
   name: api-backbone
   environments:
@@ -9,7 +9,8 @@ services:
       CPU_LIMIT: 1
       REPLICAS: 3
       FLASK_LOGGING_LEVEL: DEBUG
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-server-backbone
   - name: staging
     parameters:
       CPU_REQUEST: 0.25
