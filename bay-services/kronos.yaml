@@ -1,6 +1,6 @@
 services:
 - &kronos_def
-  hash: 9217743a38948579d456b71100fd50bd97969c27
+  hash: 4d48fdcc718e31e7a14984a395d8abbc16defdbb
   hash_length: 7
   name: kronos-pypi
   environments:
@@ -10,8 +10,8 @@ services:
       CPU_REQUEST: 2
       CPU_LIMIT: 2
       REPLICAS: 0
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: bayesian/kronos
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
       RESTART_POLICY: Always
   - name: staging
     parameters:
@@ -36,8 +36,8 @@ services:
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 2048Mi
       REPLICAS: 3
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: bayesian/kronos
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
       RESTART_POLICY: Always
   - name: staging
     parameters:
