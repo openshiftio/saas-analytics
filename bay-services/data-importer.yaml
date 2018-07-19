@@ -1,12 +1,13 @@
 services:
-- hash: 8ac09b6c3ad6b5fb08ddb02a473145a74fccf59f
+- hash: a943822d28fda1eb03bc2e0ce22b64508e866483
   hash_length: 7
   name: data-importer
   environments:
   - name: production
     parameters:
       REPLICAS: 2
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-data-model-importer
   - name: staging
     parameters:
       REPLICAS: 1
