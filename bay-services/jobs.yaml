@@ -1,12 +1,12 @@
 services:
-- hash: d1a83c1e96fa7ccd3c60d41702ad19295fe45b45
+- hash: 4ba5b7130db9fd1152f2227da54cd70db6235f5f
   hash_length: 7
   name: jobs
   environments:
   - name: production
     parameters:
-       DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-       DOCKER_IMAGE: bayesian/coreapi-jobs
+       DOCKER_REGISTRY: quay.io
+       DOCKER_IMAGE: openshiftio/rhel-bayesian-coreapi-jobs
   - name: staging
     parameters:
        DOCKER_REGISTRY: quay.io
