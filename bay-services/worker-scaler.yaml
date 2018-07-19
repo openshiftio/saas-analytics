@@ -1,5 +1,5 @@
 services:
-- hash: 109a5068647a128cc998ddb798274cc6bd19fc9e
+- hash: 713aa7e58b0a2f64485d41aea8106efdc0581c4c
   hash_length: 7
   name: worker-scaler
   environments:
@@ -11,8 +11,8 @@ services:
       SQS_QUEUE_NAME: ingestion_bayesianFlow_v0,ingestion_bayesianPackageFlow_v0
       OC_PROJECT: bayesian-production
       DRY_RUN: false
-      DOCKER_REGISTRY: prod.registry.devshift.net/osio-prod
-      DOCKER_IMAGE: fabric8-analytics/worker-scaler
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-worker-scaler
   - name: staging
     parameters:
       DEFAULT_REPLICAS: 1
