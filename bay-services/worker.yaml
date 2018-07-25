@@ -1,58 +1,38 @@
 services:
+# INGESTION WORKERS
 - &worker_def
-  hash: fc531a2601b86261f7f8ee03e0300fcc6d6f40ef
+  hash: 15dd13dcb35003c29e81c584ec16b3a3ce4c431e
   hash_length: 7
   name: worker-ingestion
   environments:
   - name: production
     parameters:
+      WORKER_RUN_DB_MIGRATIONS: 1
       WORKER_ADMINISTRATION_REGION: ingestion
-      REPLICAS: 10  # can be overridden by scaler, see worker-scaler.yaml
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      REPLICAS: 8  # can be overridden by scaler, see worker-scaler.yaml
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
     parameters:
+      WORKER_RUN_DB_MIGRATIONS: 1
       WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
       REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-worker/
 
-- <<: *worker_def
-  name: worker-api
-  environments:
-  - name: production
-    parameters:
-      WORKER_RUN_DB_MIGRATIONS: 1
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 4
-      MEMORY_LIMIT: 1024Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 500m
-  - name: staging
-    parameters:
-      WORKER_RUN_DB_MIGRATIONS: 1
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 2
-      MEMORY_LIMIT: 1024Mi
-      CPU_REQUEST: 200m
-      CPU_LIMIT: 500m
-
-- <<: *worker_def
-  name: worker-priority
-  environments:
-  - name: production
-    parameters:
-      WORKER_ADMINISTRATION_REGION: priority
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 4
-  - name: staging
-    parameters:
-      WORKER_ADMINISTRATION_REGION: priority
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask
-      REPLICAS: 1
-
+## GRAPH IMPORT
 - <<: *worker_def
   name: worker-ingestion-graph-import
   environments:
@@ -61,26 +41,84 @@ services:
       WORKER_ADMINISTRATION_REGION: ingestion
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: ingestion
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
+## INGESTION DISPATCHER
 - <<: *worker_def
-  name: worker-api-graph-import
+  name: worker-ingestion-dispatcher
   environments:
   - name: production
     parameters:
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_INCLUDE_QUEUES: GraphImporterTask
-      WORKER_NAME_SUFFIX: '-graph-import'
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 2
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
     parameters:
-      WORKER_ADMINISTRATION_REGION: api
-      WORKER_INCLUDE_QUEUES: GraphImporterTask
-      WORKER_NAME_SUFFIX: '-graph-import'
+      WORKER_ADMINISTRATION_REGION: ingestion
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
+# -----------------------------------------------------------------------------
+# PRIORITY WORKERS
+- <<: *worker_def
+  name: worker-priority
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      REPLICAS: 3
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 512Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 250m
+      CPU_LIMIT: 500m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+
+## GRAPH IMPORT
 - <<: *worker_def
   name: worker-priority-graph-import
   environments:
@@ -89,9 +127,137 @@ services:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: priority
       WORKER_INCLUDE_QUEUES: GraphImporterTask
       WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
+## PRIORITY DISPATCHER
+- <<: *worker_def
+  name: worker-priority-dispatcher
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: priority
+      WORKER_INCLUDE_QUEUES:  bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+
+# -----------------------------------------------------------------------------
+# API WORKERS
+- <<: *worker_def
+  name: worker-api
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 500m
+      REPLICAS: 3
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 1024Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 500m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+
+## GRAPH IMPORT
+- <<: *worker_def
+  name: worker-api-graph-import
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: GraphImporterTask
+      WORKER_NAME_SUFFIX: '-graph-import'
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 256Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+
+## API DISPATCHER
+- <<: *worker_def
+  name: worker-api-dispatcher
+  environments:
+  - name: production
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
+  - name: staging
+    parameters:
+      WORKER_ADMINISTRATION_REGION: api
+      WORKER_INCLUDE_QUEUES: bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_NAME_SUFFIX: '-dispatcher'
+      MEMORY_REQUEST: 256Mi
+      MEMORY_LIMIT: 320Mi
+      CPU_REQUEST: 200m
+      CPU_LIMIT: 350m
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker

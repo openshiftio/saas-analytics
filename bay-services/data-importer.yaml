@@ -1,13 +1,17 @@
 services:
-- hash: 137c30f49302c2b2c800531b7b752a86282cf8ea
+- hash: a943822d28fda1eb03bc2e0ce22b64508e866483
   hash_length: 7
   name: data-importer
   environments:
   - name: production
     parameters:
       REPLICAS: 2
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-data-model-importer
   - name: staging
     parameters:
       REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-data-model-importer
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-data-model/

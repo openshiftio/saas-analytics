@@ -1,6 +1,15 @@
 services:
-- hash: 068be9c63a4f9fb129c9e5653d4c2052d24bd5c6
+- hash: d658a106ef51935d2de52630dce29763b8444e46
   hash_length: 7
   name: fabric8-analytics-pgbouncer
+  environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-coreapi-pgbouncer
+  - name: staging
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-coreapi-pgbouncer
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-pgbouncer/

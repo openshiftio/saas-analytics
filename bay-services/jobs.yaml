@@ -1,6 +1,15 @@
 services:
-- hash: 26513b7d22e7afddecd7884291911de93edfab6e
+- hash: 4ba5b7130db9fd1152f2227da54cd70db6235f5f
   hash_length: 7
   name: jobs
+  environments:
+  - name: production
+    parameters:
+       DOCKER_REGISTRY: quay.io
+       DOCKER_IMAGE: openshiftio/rhel-bayesian-coreapi-jobs
+  - name: staging
+    parameters:
+       DOCKER_REGISTRY: quay.io
+       DOCKER_IMAGE: openshiftio/rhel-bayesian-coreapi-jobs
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-jobs/

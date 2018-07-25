@@ -1,6 +1,16 @@
 services:
-- hash: 7671cb6e540fbd5b22578db496f63abda157a070
+- hash: a89ae0ef2c4def92d4d5445ce00719893b427627
   hash_length: 7
   name: stack-report-ui
+  environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-stack-report-ui
+  - name: staging
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-stack-report-ui
+      REPLICAS: 1
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-stack-report-ui/

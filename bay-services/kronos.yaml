@@ -1,6 +1,6 @@
 services:
 - &kronos_def
-  hash: 57cf1246adcc930802c37a47ad43f9d1ceba5aae
+  hash: 4d48fdcc718e31e7a14984a395d8abbc16defdbb
   hash_length: 7
   name: kronos-pypi
   environments:
@@ -9,12 +9,20 @@ services:
       KRONOS_SCORING_REGION: pypi
       CPU_REQUEST: 2
       CPU_LIMIT: 2
+      REPLICAS: 0
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
+      RESTART_POLICY: Always
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: pypi
       CPU_REQUEST: 1
       CPU_LIMIT: 1
-  path: /openshift/template.yaml
+      REPLICAS: 0
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
+      RESTART_POLICY: Always
+  path: /openshift/template-prod.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-stack-analysis/
 
 - <<: *kronos_def
@@ -26,12 +34,20 @@ services:
       CPU_REQUEST: 2
       CPU_LIMIT: 2
       MEMORY_REQUEST: 1024Mi
-      MEMORY_LIMIT: 1280Mi
+      MEMORY_LIMIT: 2048Mi
+      REPLICAS: 3
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
+      RESTART_POLICY: Always
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: maven
       CPU_REQUEST: 1
       CPU_LIMIT: 1
       MEMORY_REQUEST: 1024Mi
-      MEMORY_LIMIT: 1280Mi
+      MEMORY_LIMIT: 2048Mi
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
+      RESTART_POLICY: Always
 
