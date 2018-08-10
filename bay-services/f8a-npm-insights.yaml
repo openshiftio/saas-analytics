@@ -16,6 +16,7 @@ services:
       CPU_LIMIT: 0.30
       MEMORY_REQUEST: 1Gi
       MEMORY_LIMIT: 1Gi
+      REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-npm-insights
   path: /openshift/template.yaml
