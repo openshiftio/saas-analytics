@@ -1,5 +1,5 @@
 services:
-- hash: 2e29ba0b389dcc354484f935a40b7473a69a5a44
+- hash: d082bf354f873aa0802983ef1b12d79677de0479
   hash_length: 7
   name: f8a-npm-insights
   environments:
