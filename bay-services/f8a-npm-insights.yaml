@@ -15,7 +15,7 @@ services:
     parameters:
       CPU_REQUEST: 0.30
       CPU_LIMIT: 0.30
-      REPLICAS: 1
+      REPLICAS: 3
       MEMORY_REQUEST: 1Gi
       MEMORY_LIMIT: 1Gi
       DOCKER_REGISTRY: quay.io
