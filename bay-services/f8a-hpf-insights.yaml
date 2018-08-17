@@ -1,6 +1,6 @@
 services:
 - &f8a-hpf-insights_def
-  hash: 3b9f27bf5392e403b7cf339ddda7a0ca603ed15d
+  hash: 91ba870bb4bb2ee726494dfe0d819e28da22214a
   hash_length: 7
   name: f8a-hpf-insights-maven
   environments:
@@ -24,5 +24,6 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
+      USE_FEEDBACK: true
   path: /openshift/template-prod.yaml
   url: https://github.com/fabric8-analytics/f8a-hpf-insights/
