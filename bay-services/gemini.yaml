@@ -9,12 +9,14 @@ services:
       MEMORY_LIMIT: 512Mi
       CPU_REQUEST: 125m
       CPU_LIMIT: 500m
+      FLASK_LOGGING_LEVEL: DEBUG
       REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-fabric8-gemini-server
   - name: staging
     parameters:
       REPLICAS: 1
+      FLASK_LOGGING_LEVEL: DEBUG
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-fabric8-gemini-server
   path: /openshift/template.yaml
