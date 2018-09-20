@@ -1,5 +1,5 @@
 services:
-- hash: 058d32b2d8ae0d77dd445d97396869ecf0e2d161
+- hash: a6c705d180f399e43e92ac5ee2906d90f504a58b
   hash_length: 7
   name: license-analysis
   environments:
