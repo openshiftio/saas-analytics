@@ -7,20 +7,20 @@ services:
   - name: production
     parameters:
       HPF_SCORING_REGION: maven
-      CPU_REQUEST: 1
-      CPU_LIMIT: 1.5
-      MEMORY_REQUEST: 1536Mi
-      MEMORY_LIMIT: 1536Mi
-      REPLICAS: 1
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 700m
+      MEMORY_REQUEST: 200Mi
+      MEMORY_LIMIT: 700Mi
+      REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
   - name: staging
     parameters:
       HPF_SCORING_REGION: maven
-      CPU_REQUEST: 1
-      CPU_LIMIT: 1.5
-      MEMORY_REQUEST: 1536Mi
-      MEMORY_LIMIT: 1536Mi
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 700m
+      MEMORY_REQUEST: 200Mi
+      MEMORY_LIMIT: 700Mi
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
