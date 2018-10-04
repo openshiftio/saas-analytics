@@ -1,0 +1,25 @@
+services:
+- hash: none
+  hash_length: 7
+  name: fabric8-analytics-release-monitor
+  environments:
+  - name: production
+    parameters:
+      ENABLE_SCHEDULING: 0
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-release-monitor
+      REPLICAS: 0
+      NPM_URL: https://registry.npmjs.org/
+      PYPI_URL: https://pypi.org/
+      SLEEP_INTERVAL: 30
+  - name: staging
+    parameters:
+      ENABLE_SCHEDULING: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-release-monitor
+      REPLICAS: 1
+      NPM_URL: https://registry.npmjs.org/
+      PYPI_URL: https://pypi.org/
+      SLEEP_INTERVAL: 30
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/fabric8-analytics-release-monitor
