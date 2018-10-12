@@ -7,7 +7,7 @@ services:
     parameters:
       ENABLE_SCHEDULING: 0
       DOCKER_REGISTRY: quay.io
-      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-release-monitor
+      DOCKER_IMAGE: openshiftio/fabric8-analytics-release-monitor
       REPLICAS: 0
       NPM_URL: https://registry.npmjs.org/
       PYPI_URL: https://pypi.org/
