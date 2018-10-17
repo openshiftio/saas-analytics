@@ -11,7 +11,7 @@ services:
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
-      REPLICAS: 3
+      REPLICAS: 6
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
   path: /openshift/template.yaml
