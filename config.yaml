@@ -4,4 +4,9 @@ contexts:
     services_dir: bay-services
     templates_dir: bay-templates
   name: bay
+  environments:
+    production:
+      namespace: bayesian-production
+    staging:
+      namespace: bayesian-preview
 current: bay
