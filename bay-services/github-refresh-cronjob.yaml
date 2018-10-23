@@ -1,7 +1,7 @@
 services:
 - hash: none
   hash_length: 7
-  name: github-refresh-cronjob
+  name: fabric8-analytics-github-refresh-cronjob
   environments:
   - name: production
     parameters:
