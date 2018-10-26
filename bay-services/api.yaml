@@ -1,5 +1,5 @@
 services:
-- hash: 4fe28037e2fb2c90e4668ddb7ff082d5ae3d30d8
+- hash: 67e1fc1cbdf6629a6f5ccb126ee9a2476f8ce9da
   hash_length: 7
   name: api
   environments:
@@ -11,7 +11,7 @@ services:
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
-      REPLICAS: 3
+      REPLICAS: 6
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
   path: /openshift/template.yaml

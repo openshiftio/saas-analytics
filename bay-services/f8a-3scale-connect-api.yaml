@@ -1,5 +1,5 @@
 services:
-- hash: 8e996bc18f46fd12a422975650e64137cc544513
+- hash: ad9cfa3e16032359bec52ca9ff798043bb27923c
   hash_length: 7
   name: f8a-3scale-connect-api
   environments:
