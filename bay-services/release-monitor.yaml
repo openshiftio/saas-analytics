@@ -8,13 +8,13 @@ services:
       ENABLE_SCHEDULING: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-release-monitor
-      REPLICAS: 1
+      REPLICAS: 0
       NPM_URL: https://registry.npmjs.org/
       PYPI_URL: https://pypi.org/
       SLEEP_INTERVAL: 30
   - name: staging
     parameters:
-      ENABLE_SCHEDULING: 1
+      ENABLE_SCHEDULING: 0
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/fabric8-analytics-release-monitor
       REPLICAS: 1
