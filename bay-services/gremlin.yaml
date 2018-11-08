@@ -8,7 +8,7 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 3
+      REPLICAS: 6
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
   - name: staging
