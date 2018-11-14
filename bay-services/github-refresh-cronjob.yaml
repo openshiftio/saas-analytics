@@ -8,7 +8,6 @@ services:
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-github-refresh-cronjob
       CRON_SCHEDULE: "0 */12 * * *"
-      DRY_RUN: 1
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
