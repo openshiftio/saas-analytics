@@ -1,5 +1,5 @@
 services:
-- hash: a40c2601224474a4d86883cd66a7db5108ca6a0a
+- hash: 082382e100c0b0dd3520193def912c31b54c4c12
   hash_length: 7
   name: fabric8-analytics-github-refresh-cronjob
   environments:
