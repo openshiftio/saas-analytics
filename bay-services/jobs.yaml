@@ -1,5 +1,5 @@
 services:
-- hash: b8e8a84f98a8ef145a258b82eca2ca8cc0a69476
+- hash: 9279ad0fe183776e158b94e33f5162271754feac
   hash_length: 7
   name: jobs
   environments:
