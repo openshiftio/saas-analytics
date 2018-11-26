@@ -12,6 +12,7 @@ services:
       NPM_URL: https://registry.npmjs.org/
       PYPI_URL: https://pypi.org/
       SLEEP_INTERVAL: 30
+      DEBUG: False
   - name: staging
     parameters:
       ENABLE_SCHEDULING: 0
@@ -21,5 +22,6 @@ services:
       NPM_URL: https://registry.npmjs.org/
       PYPI_URL: https://pypi.org/
       SLEEP_INTERVAL: 30
+      DEBUG: False
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-release-monitor
