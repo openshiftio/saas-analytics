@@ -1,0 +1,18 @@
+services:
+- &f8a-pypi-insights_def
+  hash: none
+  hash_length: 7
+  name: f8a-pypi-insights
+  environments:
+  - name: staging
+    parameters:
+      CPU_REQUEST: 300m
+      CPU_LIMIT: 1000m
+      MEMORY_REQUEST: 200Mi
+      MEMORY_LIMIT: 512Mi
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
+      RESTART_POLICY: Always
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/f8a-pypi-insights/
