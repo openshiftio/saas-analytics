@@ -1,10 +1,19 @@
 services:
 - &f8a-pypi-insights_def
-  hash: none
+  hash: 5044f2dce7101265fe1c893e7f6ccc8397483b86
   hash_length: 7
   name: f8a-pypi-insights
   environments:
   - name: staging
+    parameters:
+      CPU_REQUEST: 300m
+      CPU_LIMIT: 1000m
+      MEMORY_REQUEST: 200Mi
+      MEMORY_LIMIT: 512Mi
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
+  - name: production
     parameters:
       CPU_REQUEST: 300m
       CPU_LIMIT: 1000m
