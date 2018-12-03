@@ -13,6 +13,5 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      RESTART_POLICY: Always
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-pypi-insights/
