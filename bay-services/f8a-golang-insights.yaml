@@ -1,0 +1,18 @@
+services:
+- &f8a-golang-insights_def
+  hash: none
+  hash_length: 7
+  name: f8a-golang-insights
+  environments:
+  - name: staging
+    parameters:
+      CPU_REQUEST: 50m
+      CPU_LIMIT: 200m
+      MEMORY_REQUEST: 100Mi
+      MEMORY_LIMIT: 300Mi
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-golang-insights
+      RESTART_POLICY: Always
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/f8a-golang-insights/
