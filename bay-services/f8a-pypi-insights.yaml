@@ -1,6 +1,6 @@
 services:
 - &f8a-pypi-insights_def
-  hash: 2fe2b56e3d552f51fc4f50238bdd6801c7173a89
+  hash: a11b2de5ae71f9a91a2fd965ab5c8d0e80f622f0
   hash_length: 7
   name: f8a-pypi-insights
   environments:
