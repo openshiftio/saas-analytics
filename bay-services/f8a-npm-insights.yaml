@@ -8,7 +8,7 @@ services:
       CPU_REQUEST: 0.30
       CPU_LIMIT: 0.30
       REPLICAS: 1
-      MIN_REC_CONFIDENCE: 65
+      MIN_REC_CONFIDENCE: 30
       FLASK_LOGGING_LEVEL: DEBUG
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-npm-insights
@@ -17,7 +17,7 @@ services:
       CPU_REQUEST: 0.30
       CPU_LIMIT: 0.30
       REPLICAS: 3
-      MIN_REC_CONFIDENCE: 65
+      MIN_REC_CONFIDENCE: 30
       MEMORY_REQUEST: 1Gi
       MEMORY_LIMIT: 1Gi
       DOCKER_REGISTRY: quay.io
