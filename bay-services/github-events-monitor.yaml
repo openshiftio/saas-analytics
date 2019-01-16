@@ -1,7 +1,7 @@
 services:
 - hash: none
   hash_length: 7
-  name: github-events-monitor
+  name: fabric8-analytics-github-events-monitor
   environments:
   - name: production
     parameters:
