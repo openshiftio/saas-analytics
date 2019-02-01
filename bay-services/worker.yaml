@@ -14,7 +14,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
-      REPLICAS: 0  # can be overridden by scaler, see worker-scaler.yaml
+      REPLICAS: 8  # can be overridden by scaler, see worker-scaler.yaml
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -26,7 +26,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
-      REPLICAS: 0  # can be overridden by scaler, see worker-scaler.yaml
+      REPLICAS: 1  # can be overridden by scaler, see worker-scaler.yaml
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   path: /openshift/template.yaml
@@ -45,7 +45,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -57,7 +57,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
@@ -74,7 +74,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 0
+      REPLICAS: 2
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -86,7 +86,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
@@ -103,7 +103,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -114,7 +114,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 250m
       CPU_LIMIT: 500m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
@@ -131,7 +131,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -143,7 +143,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
@@ -160,7 +160,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -172,7 +172,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
@@ -189,7 +189,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      REPLICAS: 0
+      REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -200,7 +200,7 @@ services:
       MEMORY_LIMIT: 1024Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
@@ -217,7 +217,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -229,7 +229,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
 
@@ -246,7 +246,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -258,6 +258,6 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 0
+      REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
