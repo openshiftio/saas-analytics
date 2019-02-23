@@ -1,8 +1,13 @@
 services:
-- hash: 353015ffd67e123b1032bfd4405963da72db2bca
+- hash: fa64b068bf6937ac7c5bcf211496f3891d850c15
   hash_length: 7
   name: f8a-stacks-report
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "0 0 * * 0"
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
