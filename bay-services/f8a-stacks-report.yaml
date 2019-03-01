@@ -1,5 +1,5 @@
 services:
-- hash: eb926521ef2f9ad0624971c6c141e3b1fa9139ae
+- hash: 33795db7de4a2bc7e77bc463765b897e82241ce5
   hash_length: 7
   name: f8a-stacks-report
   environments:
