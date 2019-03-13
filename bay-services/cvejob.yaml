@@ -1,0 +1,65 @@
+services:
+- &cvejob_def
+  hash: none
+  hash_length: 7
+  name: cvejob-pypi
+  environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/fabric8-analytics-cvejob
+      CVEJOB_CVE_AGE: 1
+      CVEJOB_SKIP_PULL_REQUESTS: false
+      CVEJOB_ECOSYSTEM: python
+      CRON_SCHEDULE: "0 1 * * *"
+  - name: staging
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/fabric8-analytics-cvejob
+      CVEJOB_CVE_AGE: 1
+      CVEJOB_SKIP_PULL_REQUESTS: false
+      CVEJOB_ECOSYSTEM: python
+      CRON_SCHEDULE: "0 1 * * *"
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/cvejob
+
+- <<: *cvejob_def
+  name: cvejob-npm
+  environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/fabric8-analytics-cvejob
+      CVEJOB_CVE_AGE: 1
+      CVEJOB_SKIP_PULL_REQUESTS: false
+      CVEJOB_ECOSYSTEM: javascript
+      CRON_SCHEDULE: "0 2 * * *"
+  - name: staging
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/fabric8-analytics-cvejob
+      CVEJOB_CVE_AGE: 1
+      CVEJOB_SKIP_PULL_REQUESTS: false
+      CVEJOB_ECOSYSTEM: javascript
+      CRON_SCHEDULE: "0 2 * * *"
+
+- <<: *cvejob_def
+  name: cvejob-maven
+  environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/fabric8-analytics-cvejob
+      CVEJOB_CVE_AGE: 1
+      CVEJOB_SKIP_PULL_REQUESTS: false
+      CVEJOB_ECOSYSTEM: java
+      CRON_SCHEDULE: "0 3 * * *"
+  - name: staging
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/fabric8-analytics-cvejob
+      CVEJOB_CVE_AGE: 1
+      CVEJOB_SKIP_PULL_REQUESTS: false
+      CVEJOB_ECOSYSTEM: java
+      CRON_SCHEDULE: "0 3 * * *"
+
