@@ -11,7 +11,7 @@ services:
       REPLICAS: 1
       NPM_URL: https://registry.npmjs.org/
       PYPI_URL: https://pypi.org/
-      SLEEP_INTERVAL: 10
+      SLEEP_INTERVAL: 5
   - name: staging
     parameters:
       ENABLE_SCHEDULING: 0
