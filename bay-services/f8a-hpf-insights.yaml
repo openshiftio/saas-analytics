@@ -1,6 +1,6 @@
 services:
 - &f8a-hpf-insights_def
-  hash: 2d82a7505f6e0483003066d819c3c8e6f38047c6
+  hash: 35410e5a703edfefd5fbce32dd98584968838105
   hash_length: 7
   name: f8a-hpf-insights-maven
   environments:
