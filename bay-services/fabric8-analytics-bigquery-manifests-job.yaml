@@ -1,7 +1,7 @@
 services:
 - hash: none
   hash_length: 7
-  name: f8a-bq-manifests-job
+  name: fabric8-analytics-bigquery-manifests-job
   environments:
   - name: staging
     parameters:
