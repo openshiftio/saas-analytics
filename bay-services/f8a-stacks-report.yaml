@@ -1,5 +1,5 @@
 services:
-- hash: 83a58288b22155316ce0f07f10cf8ce0ddf31949
+- hash: df60b8d8f02e544b50fe8d79e53330e1ec3f06c6
   hash_length: 7
   name: f8a-stacks-report
   environments:
@@ -8,10 +8,12 @@ services:
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
       CRON_SCHEDULE: "0 0 * * *"
+      GITHUB_CVE_REPO: fabric8-analytics
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
       CRON_SCHEDULE: "0 0 * * *"
+      GITHUB_CVE_REPO: fabric8-analytics
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-stacks-report
