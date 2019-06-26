@@ -1,5 +1,5 @@
 services:
-- hash: fa5275cf6dd87e0786b00d7333b5260442b4ec53
+- hash: 89a328d1d6c339df6903d45a254c32d2cec68866
   hash_length: 7
   name: api-backbone
   environments:
