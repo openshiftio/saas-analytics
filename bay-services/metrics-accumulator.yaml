@@ -1,5 +1,5 @@
 services:
-- hash: null
+- hash: none
   hash_length: 7
   name: metrics-accumulator
   environments:
