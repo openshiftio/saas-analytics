@@ -1,5 +1,5 @@
 services:
-- hash: c5cd327bcfc46a171819f2c882a55d61d81b5d9a
+- hash: 0ade6579632fd1ac72347448a92de3cf60488550
   hash_length: 7
   name: api
   environments:
@@ -9,6 +9,8 @@ services:
       DOCKER_REGISTRY: quay.io
       COMPONENT_ANALYSES_LIMIT: 10
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
+      METRICS_ACCUMULATOR_HOST: metrics-accumulator
+      METRICS_ACCUMULATOR_PORT: 5200
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
@@ -16,5 +18,7 @@ services:
       REPLICAS: 10
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
+      METRICS_ACCUMULATOR_HOST: metrics-accumulator
+      METRICS_ACCUMULATOR_PORT: 5200
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-server/
