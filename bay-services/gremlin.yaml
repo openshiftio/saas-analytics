@@ -11,6 +11,7 @@ services:
       REPLICAS: 6
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
+      MEMORY_LIMIT: 1792Mi
   - name: staging
     parameters:
       CHANNELIZER: http
