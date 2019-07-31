@@ -5,7 +5,7 @@ services:
   environments:
   - name: production
     parameters:
-      REPLICAS: 2
+      REPLICAS: 6
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-data-model-importer
   - name: staging
