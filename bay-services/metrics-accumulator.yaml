@@ -1,5 +1,5 @@
 services:
-- hash: 45aea63380d9a587591ead63d34c68ba25bf1a0d
+- hash: 16a810dec483e4f8e49abf0ac77e4795cbf0e2b8
   hash_length: 7
   name: metrics-accumulator
   environments:
