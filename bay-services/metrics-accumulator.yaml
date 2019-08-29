@@ -1,5 +1,5 @@
 services:
-- hash: 1279b7856313ef4f44431b12c5da91a41ed5b866
+- hash: 7c386318baaa4e1966d20fd174fc3e71f16f7208
   hash_length: 7
   name: metrics-accumulator
   environments:
@@ -8,10 +8,12 @@ services:
       FLASK_LOGGING_LEVEL: DEBUG
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-metrics-accumulator
+      RESET_COUNTER_ON_RESTART: 0
   - name: staging
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-metrics-accumulator
+      RESET_COUNTER_ON_RESTART: 0
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/metrics-accumulator/
