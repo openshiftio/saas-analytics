@@ -11,9 +11,11 @@ services:
       GITHUB_CVE_REPO: fabric8-analytics
   - name: staging
     parameters:
+      MEMORY_REQUEST: "1024Mi"
+      MEMORY_LIMIT: "1024Mi"
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
-      CRON_SCHEDULE: "0 0 * * *"
+      CRON_SCHEDULE: "0 */3 * * *"
       GITHUB_CVE_REPO: fabric8-analytics
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-stacks-report
