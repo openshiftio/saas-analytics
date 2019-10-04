@@ -30,7 +30,7 @@ services:
       CHANNELIZER: http
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
-      REPLICAS: 6
+      REPLICAS: 10
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
   - name: staging
