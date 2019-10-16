@@ -1,7 +1,7 @@
 services:
 # INGESTION WORKERS
 - &worker_def
-  hash: d2e5c37ea06233fef03f36a74f95915fb3ee60e1
+  hash: 30b84643d32baa753a04c7c5685239748f1416b0
   hash_length: 7
   name: worker-ingestion
   environments:
@@ -45,7 +45,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 10
+      REPLICAS: 15
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -74,7 +74,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 10
+      REPLICAS: 15
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -189,7 +189,7 @@ services:
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 500m
-      REPLICAS: 6
+      REPLICAS: 15
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -217,7 +217,7 @@ services:
       MEMORY_LIMIT: 256Mi
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
-      REPLICAS: 3
+      REPLICAS: 10
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
@@ -246,7 +246,7 @@ services:
       MEMORY_LIMIT: 320Mi
       CPU_REQUEST: 200m
       CPU_LIMIT: 350m
-      REPLICAS: 3
+      REPLICAS: 10
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-cucos-worker
   - name: staging
