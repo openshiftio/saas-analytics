@@ -6,12 +6,20 @@ services:
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 512Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-metrics-accumulator
       RESET_COUNTER_ON_RESTART: 0
   - name: staging
     parameters:
       FLASK_LOGGING_LEVEL: DEBUG
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 512Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-metrics-accumulator
       RESET_COUNTER_ON_RESTART: 0

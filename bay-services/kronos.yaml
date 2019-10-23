@@ -7,8 +7,8 @@ services:
   - name: production
     parameters:
       KRONOS_SCORING_REGION: pypi
-      CPU_REQUEST: 2
-      CPU_LIMIT: 2
+      CPU_REQUEST: 500m 
+      CPU_LIMIT: 2000m
       REPLICAS: 0
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
@@ -16,8 +16,8 @@ services:
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: pypi
-      CPU_REQUEST: 1
-      CPU_LIMIT: 1
+      CPU_REQUEST: 500m
+      CPU_LIMIT: 1000m
       REPLICAS: 0
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
@@ -31,8 +31,8 @@ services:
   - name: production
     parameters:
       KRONOS_SCORING_REGION: maven
-      CPU_REQUEST: 2
-      CPU_LIMIT: 2
+      CPU_REQUEST: 500m
+      CPU_LIMIT: 2000m
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 2048Mi
       REPLICAS: 3
@@ -42,8 +42,8 @@ services:
   - name: staging
     parameters:
       KRONOS_SCORING_REGION: maven
-      CPU_REQUEST: 1
-      CPU_LIMIT: 1
+      CPU_REQUEST: 500m
+      CPU_LIMIT: 1000m
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 2048Mi
       REPLICAS: 1
