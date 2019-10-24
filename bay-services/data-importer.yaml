@@ -6,11 +6,19 @@ services:
   - name: production
     parameters:
       REPLICAS: 10
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 500Mi
+      MEMORY_LIMIT: 512Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-data-model-importer
   - name: staging
     parameters:
       REPLICAS: 1
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 200m
+      MEMORY_REQUEST: 500Mi
+      MEMORY_LIMIT: 512Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-data-model-importer
   path: /openshift/template.yaml

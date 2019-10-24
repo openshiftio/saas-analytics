@@ -5,8 +5,8 @@ services:
   environments:
   - name: staging
     parameters:
-      CPU_REQUEST: 0.30
-      CPU_LIMIT: 0.30
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
       REPLICAS: 1
       MIN_REC_CONFIDENCE: 30
       FLASK_LOGGING_LEVEL: DEBUG
@@ -14,12 +14,12 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-npm-insights
   - name: production
     parameters:
-      CPU_REQUEST: 0.30
-      CPU_LIMIT: 0.30
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
       REPLICAS: 3
       MIN_REC_CONFIDENCE: 30
-      MEMORY_REQUEST: 1Gi
-      MEMORY_LIMIT: 1Gi
+      MEMORY_REQUEST: 1000Mi
+      MEMORY_LIMIT: 1024Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-npm-insights
   path: /openshift/template.yaml

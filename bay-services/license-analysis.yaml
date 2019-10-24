@@ -1,14 +1,24 @@
 services:
-- hash: f24c0236fd4c095d6c5f5cb1955c4f0afce40605
+- hash: cfaccfe731c48ae503c10e3fc9e12d5bdc23c350
   hash_length: 7
   name: license-analysis
   environments:
   - name: production
     parameters:
+      REPLICAS: 1
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 512Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-license-analysis
   - name: staging
     parameters:
+      REPLICAS: 1
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 128Mi
+      MEMORY_LIMIT: 512Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-license-analysis
   path: /openshift/template.yaml

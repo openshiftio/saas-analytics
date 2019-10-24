@@ -11,12 +11,19 @@ services:
       REPLICAS: 6
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 1536Mi
       MEMORY_LIMIT: 1792Mi
   - name: staging
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
       REPLICAS: 1
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 1024Mi
+      MEMORY_LIMIT: 1536Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
   path: /openshift/template.yaml
@@ -31,6 +38,10 @@ services:
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
       REPLICAS: 10
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 640Mi
+      MEMORY_LIMIT: 1024Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
   - name: staging
@@ -39,6 +50,10 @@ services:
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
       REPLICAS: 1
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 640Mi
+      MEMORY_LIMIT: 1024Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
   path: /openshift/template.yaml

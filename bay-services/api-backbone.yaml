@@ -7,6 +7,8 @@ services:
     parameters:
       CPU_REQUEST: 0.25
       CPU_LIMIT: 1
+      MEMORY_REQUEST: 500Mi
+      MEMORY_LIMIT: 512Mi
       REPLICAS: 6
       FLASK_LOGGING_LEVEL: DEBUG
       DOCKER_REGISTRY: quay.io
@@ -15,6 +17,8 @@ services:
     parameters:
       CPU_REQUEST: 0.25
       CPU_LIMIT: 1
+      MEMORY_REQUEST: 500Mi
+      MEMORY_LIMIT: 512Mi
       FLASK_LOGGING_LEVEL: DEBUG
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-server-backbone
