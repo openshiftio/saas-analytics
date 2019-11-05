@@ -1,5 +1,5 @@
 services:
-- hash: a2b5151b5886b3762bfd13ba720952466fa01e53
+- hash: d9448666683f6507e2277df17af76df63f3d78d9
   hash_length: 7
   name: metrics-accumulator
   environments:
@@ -10,6 +10,7 @@ services:
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 128Mi
       MEMORY_LIMIT: 512Mi
+      METRICS_COLLECTOR_SERVICE_TIMEOUT: 120
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-metrics-accumulator
       RESET_COUNTER_ON_RESTART: 0
