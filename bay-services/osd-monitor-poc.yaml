@@ -1,5 +1,5 @@
 services:
-- hash: 0e7d7b0f2c0c368b1174e8b60e15f9a3a8b09348
+- hash: e2f855b6d2bc4d013e5343b33fa686162f6b6f95
   name: osd-monitor-poc
   path: /bayesian-monitor.yml
   url: https://github.com/redhat-developer/osd-monitor-poc/
