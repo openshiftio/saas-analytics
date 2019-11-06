@@ -4,3 +4,6 @@ services:
   name: osd-monitor-poc
   path: /bayesian-monitor.yml
   url: https://github.com/redhat-developer/osd-monitor-poc/
+  environments:
+    parameters:
+      PMCD_TIMEOUT: "300"
