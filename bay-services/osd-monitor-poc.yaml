@@ -2,12 +2,5 @@ services:
 - hash: 4294a636d23f289937f2a0281e25cf539fe04d83
   hash_length: 7
   name: osd-monitor-poc
-  environments:
-  - name: production
-    parameters:
-      PMCD_TIMEOUT: "20"
-  - name: staging
-      parameters:
-      PMCD_TIMEOUT: "20"
   path: /bayesian-monitor.yml
   url: https://github.com/redhat-developer/osd-monitor-poc/
