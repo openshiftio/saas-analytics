@@ -1,5 +1,5 @@
 services:
-- hash: e70fcfb1faff09d004380bba519dddc449a35982
+- hash: 7debc5f0d13293e0a03a7d570be382bc4ff65b0f
   hash_length: 7
   name: osd-monitor-poc
   path: /bayesian-monitor.yml
