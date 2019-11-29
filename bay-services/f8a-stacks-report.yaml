@@ -1,5 +1,5 @@
 services:
-- hash: 4dc36e001a8046d56b54714be69a3c111177e7c1
+- hash: 2fcd90241c2c726c8acd0b82029a8c1c1d37adb9
   hash_length: 7
   name: f8a-stacks-report
   environments:
@@ -9,6 +9,7 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
       CRON_SCHEDULE: "0 0 * * *"
       GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "False"
   - name: staging
     parameters:
       MEMORY_REQUEST: "2048Mi"
@@ -17,5 +18,6 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
       CRON_SCHEDULE: "0 0 * * *"
       GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "True"
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-stacks-report
