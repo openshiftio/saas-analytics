@@ -1,6 +1,6 @@
 services:
 - &gremlin_def
-  hash: 11cd05978f7bfdd683f6fcb968f72f72bcce169a
+  hash: f95acc32b0e2b586fbc7baa3763208b73f927dc7
   hash_length: 7
   name: gremlin-http
   environments:
@@ -14,7 +14,8 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 1536Mi
-      MEMORY_LIMIT: 1792Mi
+      MEMORY_LIMIT: 2688Mi
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
   - name: staging
     parameters:
       CHANNELIZER: http
@@ -23,9 +24,10 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 1024Mi
-      MEMORY_LIMIT: 1536Mi
+      MEMORY_LIMIT: 2688Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
 
@@ -41,9 +43,10 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 640Mi
-      MEMORY_LIMIT: 1024Mi
+      MEMORY_LIMIT: 1792Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
   - name: staging
     parameters:
       CHANNELIZER: http
@@ -53,8 +56,9 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 640Mi
-      MEMORY_LIMIT: 1024Mi
+      MEMORY_LIMIT: 1792Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
