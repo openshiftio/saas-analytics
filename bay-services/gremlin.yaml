@@ -43,7 +43,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 640Mi
-      MEMORY_LIMIT: 1792Mi
+      MEMORY_LIMIT: 2688Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
       JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
@@ -56,7 +56,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 640Mi
-      MEMORY_LIMIT: 1792Mi
+      MEMORY_LIMIT: 2688Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
       JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
