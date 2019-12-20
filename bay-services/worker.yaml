@@ -184,7 +184,7 @@ services:
   - name: production
     parameters:
       WORKER_ADMINISTRATION_REGION: api
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow,golangCVEPredictionsFlow
       MEMORY_REQUEST: 256Mi
       MEMORY_LIMIT: 1536Mi
       CPU_REQUEST: 200m
@@ -195,7 +195,7 @@ services:
   - name: staging
     parameters:
       WORKER_ADMINISTRATION_REGION: api
-      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow
+      WORKER_EXCLUDE_QUEUES: GraphImporterTask,bayesianAnalysisFlow,bayesianApiFlow,bayesianApiPackageFlow,bayesianFlow,bayesianPackageAnalysisFlow,bayesianPackageFlow,bayesianPackageTaggingFlow,bayesianPriorityFlow,bayesianPriorityPackageFlow,golangCVEPredictionsFlow
       MEMORY_REQUEST: 256Mi
       MEMORY_LIMIT: 1024Mi
       CPU_REQUEST: 200m
