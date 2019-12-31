@@ -46,7 +46,7 @@ services:
       MEMORY_LIMIT: 2688Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
-      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -Xms512m -Xmx1024m"
   - name: staging
     parameters:
       CHANNELIZER: http
@@ -59,6 +59,6 @@ services:
       MEMORY_LIMIT: 2688Mi
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
-      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -Xms512m -Xmx1024m"
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
