@@ -1,6 +1,6 @@
 services:
 - &f8a-emr-deployment_def
-  hash: 108065a86f01701023e9838eaec811d8f78b6596
+  hash: 9de445442ab3de9ebd3d9cf96fd263757dd75bca
   hash_length: 7
   name: f8a-emr-deployment
   environments:
