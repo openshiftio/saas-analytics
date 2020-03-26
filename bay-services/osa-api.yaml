@@ -1,0 +1,18 @@
+services:
+- hash: none
+  hash_length: 7
+  name: api
+  environments:
+  - name: staging
+    parameters:
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/osa-api-server
+  - name: production
+    parameters:
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/osa-api-server
+      API_SERVER_HOSTNAME:
+  path: /openshift/template.yaml
+  url: https://github.com/kubesecurity/osa-api-server/

@@ -1,0 +1,33 @@
+services:
+- hash: None
+  hash_length: 7
+  name: osa-gremlin-http
+  environments:
+  - name: production
+    parameters:
+      CHANNELIZER: http
+      REST_VALUE: 1
+      REPLICAS: 1
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 640Mi
+      MEMORY_LIMIT: 2688Mi
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+      DYNAMODB_INSTANCE_PREFIX: "osa"
+  - name: staging
+    parameters:
+      CHANNELIZER: http
+      REST_VALUE: 1
+      REPLICAS: 1
+      CPU_REQUEST: 100m
+      CPU_LIMIT: 300m
+      MEMORY_REQUEST: 640Mi
+      MEMORY_LIMIT: 2688Mi
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
+      JAVA_OPTIONS: "-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+      DYNAMODB_INSTANCE_PREFIX: "osa"
+  path: /openshift/template.yaml
+  url: https://github.com/fabric8-analytics/gremlin-docker/
