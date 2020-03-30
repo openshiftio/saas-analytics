@@ -1,7 +1,7 @@
 services:
 - hash: none
   hash_length: 7
-  name: api
+  name: osa-api-server
   environments:
   - name: staging
     parameters:
