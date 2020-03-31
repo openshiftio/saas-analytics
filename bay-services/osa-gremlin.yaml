@@ -16,6 +16,7 @@ services:
       MEMORY_LIMIT: 2688Mi
       JAVA_OPTIONS: "-XX:+PrintFlagsFinal -Xms512m -Xmx1400m"
       DYNAMODB_INSTANCE_PREFIX: "osa"
+      DYNAMODB_SECRET_NAME: "aws-dynamodb-osa"
   - name: staging
     parameters:
       CHANNELIZER: http
@@ -29,5 +30,6 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
       JAVA_OPTIONS: "-XX:+PrintFlagsFinal -Xms512m -Xmx1400m"
       DYNAMODB_INSTANCE_PREFIX: "osa"
+      DYNAMODB_SECRET_NAME: "aws-dynamodb-osa"
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/gremlin-docker/
