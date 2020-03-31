@@ -1,5 +1,5 @@
 services:
-- hash: 808d4708395b1e36dd2c56baeaedecb604f12c34
+- hash: 004c6fc529666b6354c5fb714924ba5b1e9cc734
   hash_length: 7
   name: osa-gremlin-http
   environments:
