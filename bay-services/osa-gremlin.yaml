@@ -1,5 +1,5 @@
 services:
-- hash: 004c6fc529666b6354c5fb714924ba5b1e9cc734
+- hash: b15ded9ce32642e971eb4d85a2174c7645eb2226
   hash_length: 7
   name: osa-gremlin-http
   environments:
@@ -17,6 +17,7 @@ services:
       JAVA_OPTIONS: "-XX:+PrintFlagsFinal -Xms512m -Xmx1400m"
       DYNAMODB_INSTANCE_PREFIX: "osa"
       DYNAMODB_SECRET_NAME: "aws-dynamodb-osa"
+      DYNAMODB_PREFIX_KEY: "osa-dynamodb-prefix"
   - name: staging
     parameters:
       CHANNELIZER: http
