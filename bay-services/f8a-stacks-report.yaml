@@ -1,5 +1,5 @@
 services:
-- hash: ad0d2b448d103cbd29c36aba5ac5e107a0b23a98
+- hash: 47b55846da02cd31f5e9851855ff2878573da5b0
   hash_length: 7
   name: f8a-stacks-report
   environments:
@@ -19,7 +19,5 @@ services:
       CRON_SCHEDULE: "0 13 * * *"
       GITHUB_CVE_REPO: fabric8-analytics
       GENERATE_MANIFESTS: "True"
-      SENTRY_API_ISSUES: https://sentry.stage.devshift.net/api/0/projects/sentry/fabric8-analytics-stage/issues/
-      SENTRY_API_TAGS: https://sentry.stage.devshift.net/api/0/issues/
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-stacks-report
