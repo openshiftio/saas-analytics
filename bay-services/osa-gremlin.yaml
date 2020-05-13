@@ -7,7 +7,7 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 1
+      REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
       CPU_REQUEST: 100m
@@ -22,7 +22,7 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 1
+      REPLICAS: 3
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 640Mi
