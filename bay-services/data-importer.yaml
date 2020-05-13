@@ -5,7 +5,7 @@ services:
   environments:
   - name: production
     parameters:
-      REPLICAS: 10
+      REPLICAS: 13
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 500Mi
@@ -14,7 +14,7 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-bayesian-data-model-importer
   - name: staging
     parameters:
-      REPLICAS: 1
+      REPLICAS: 3
       CPU_REQUEST: 100m
       CPU_LIMIT: 200m
       MEMORY_REQUEST: 500Mi
