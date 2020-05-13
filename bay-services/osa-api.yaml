@@ -1,5 +1,5 @@
 services:
-- hash: e612035a5e0b3551d5db745365e728d05518e3cb
+- hash: 26a1373228941d2597fca9a2fcd6ce76efb96759
   hash_length: 7
   name: osa-api-server
   environments:
