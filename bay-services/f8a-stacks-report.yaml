@@ -9,7 +9,7 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
       CRON_SCHEDULE: "0 4 * * *"
       GITHUB_CVE_REPO: fabric8-analytics
-      GENERATE_MANIFESTS: "False"
+      GENERATE_MANIFESTS: "false"
       SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-production/issues/"
       SENTRY_API_TAGS: "/api/0/issues/"
   - name: staging
@@ -20,7 +20,7 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
       CRON_SCHEDULE: "0 13 * * *"
       GITHUB_CVE_REPO: fabric8-analytics
-      GENERATE_MANIFESTS: "True"
+      GENERATE_MANIFESTS: "false"
       SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
       SENTRY_API_TAGS: "/api/0/issues/"
   path: /openshift/template.yaml
