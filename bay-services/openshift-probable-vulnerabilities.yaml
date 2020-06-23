@@ -1,7 +1,7 @@
 services:
 - hash: none
   hash_length: 7
-  name: osa-probable-vulnerability-inference-job
+  name: openshift-probable-vulnerabilities
   environments:
   - name: staging
     parameters:
