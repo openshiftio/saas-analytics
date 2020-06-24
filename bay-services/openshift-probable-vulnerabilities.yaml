@@ -6,10 +6,8 @@ services:
   - name: staging
     parameters:
       REPLICAS: 1
-      CRON_SCHEDULE: "0 1 * * MON"
   - name: production
     parameters:
       REPLICAS: 1
-      CRON_SCHEDULE: "0 1 * * MON"
   path: /deployment/template-cronjob.yaml
   url: https://github.com/kubesecurity/openshift-probable-vulnerabilities/
