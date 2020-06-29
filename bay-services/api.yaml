@@ -8,6 +8,7 @@ services:
       FLASK_LOGGING_LEVEL: DEBUG
       DOCKER_REGISTRY: quay.io
       COMPONENT_ANALYSES_LIMIT: 10
+      REPLICAS: 3
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
       METRICS_ACCUMULATOR_HOST: metrics-accumulator
       METRICS_ACCUMULATOR_PORT: 5200
