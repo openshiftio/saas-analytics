@@ -10,7 +10,7 @@ services:
       MEMORY_REQUEST: 500Mi
       MEMORY_LIMIT: 512Mi
       REPLICAS: 6
-      FLASK_LOGGING_LEVEL: DEBUG
+      FLASK_LOGGING_LEVEL: INFO
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-server-backbone
   - name: staging
@@ -20,7 +20,7 @@ services:
       MEMORY_REQUEST: 500Mi
       MEMORY_LIMIT: 512Mi
       REPLICAS: 3
-      FLASK_LOGGING_LEVEL: DEBUG
+      FLASK_LOGGING_LEVEL: INFO
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-server-backbone
       DISABLE_UNKNOWN_PACKAGE_FLOW: 1
