@@ -25,7 +25,6 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
-      USE_FEEDBACK: true
       MODEL_VERSION: "2019-01-03"
   path: /openshift/template-prod.yaml
   url: https://github.com/fabric8-analytics/f8a-hpf-insights/
