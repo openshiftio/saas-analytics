@@ -1,5 +1,5 @@
 services:
-- hash: 269f9ca3ffa1cdeb29d7adb97ab271d1a2247b5f
+- hash: da60851bac8ddfba9eacc6dddc66b7d9c11137c6
   hash_length: 7
   name: fabric8-analytics-github-refresh-cronjob
   environments:
@@ -7,7 +7,7 @@ services:
     parameters:
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-github-refresh-cronjob
-      DRY_RUN: 1
+      DRY_RUN: 0
       CRON_SCHEDULE: "0 7 * * *"
   - name: staging
     parameters:
