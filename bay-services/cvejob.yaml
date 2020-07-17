@@ -1,6 +1,6 @@
 services:
 - &cvejob_def
-  hash: none
+  hash: d64b3a58337046830c8b9e43e8181bae8b6ff006
   hash_length: 7
   name: cvejob-pypi
   environments:
