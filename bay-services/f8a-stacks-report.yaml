@@ -7,7 +7,7 @@ services:
     parameters:
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
-      CRON_SCHEDULE: "0 4 * * *"
+      CRON_SCHEDULE: "15 0 * * *"
       GITHUB_CVE_REPO: fabric8-analytics
       GENERATE_MANIFESTS: "false"
       SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-production/issues/"
