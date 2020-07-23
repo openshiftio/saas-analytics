@@ -8,7 +8,7 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 12
+      REPLICAS: 10
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-gremlin
       CPU_REQUEST: 100m
@@ -20,7 +20,7 @@ services:
     parameters:
       CHANNELIZER: http
       REST_VALUE: 1
-      REPLICAS: 3
+      REPLICAS: 2
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 1024Mi
@@ -39,7 +39,7 @@ services:
       CHANNELIZER: http
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
-      REPLICAS: 12
+      REPLICAS: 10
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 640Mi
@@ -52,7 +52,7 @@ services:
       CHANNELIZER: http
       QUERY_ADMINISTRATION_REGION: ingestion
       REST_VALUE: 1
-      REPLICAS: 3
+      REPLICAS: 2
       CPU_REQUEST: 100m
       CPU_LIMIT: 300m
       MEMORY_REQUEST: 640Mi
