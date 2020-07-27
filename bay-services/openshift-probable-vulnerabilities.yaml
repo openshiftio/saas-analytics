@@ -1,5 +1,5 @@
 services:
-- hash: none
+- hash: 4727cd623155c4d9e5ca01e089b859245ab7a9aa
   hash_length: 7
   name: openshift-probable-vulnerabilities
   environments:
