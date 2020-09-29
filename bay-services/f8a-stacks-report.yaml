@@ -35,7 +35,24 @@ services:
       SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
       SENTRY_API_TAGS: "/api/0/issues/"
       ENTRY_POINT: "f8a_report/dbtable_cleanup_main.py"
-      SUFFIX: "dbtable-cleanup"
+      SUFFIX: "dbtable-cleanup-daily"
+
+- <<: *stacks_def
+name: snyk-token-validation-daily
+environments:
+- name: staging
+  parameters:
+    MEMORY_REQUEST: "2048Mi"
+    MEMORY_LIMIT: "2048Mi"
+    DOCKER_REGISTRY: quay.io
+    DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+    CRON_SCHEDULE: "00 2 * * *"
+    GITHUB_CVE_REPO: fabric8-analytics
+    GENERATE_MANIFESTS: "false"
+    SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
+    SENTRY_API_TAGS: "/api/0/issues/"
+    ENTRY_POINT: "f8a_report/snyk_token_validation_main.py"
+    SUFFIX: "snyk-token-validation-daily"
 
 - <<: *stacks_def
   name: dynamic-manifest-weekly
@@ -52,7 +69,7 @@ services:
       SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
       SENTRY_API_TAGS: "/api/0/issues/"
       ENTRY_POINT: "f8a_report/manifest_main.py"
-      SUFFIX: "dynamic-manifest"
+      SUFFIX: "dynamic-manifest-weekly"
 
 - <<: *stacks_def
   name: stacks-report-monthly
