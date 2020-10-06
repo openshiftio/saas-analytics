@@ -1,5 +1,5 @@
 services:
-- hash: 54e5d9fede1059a9454a91718269cdb12dade9a9
+- hash: b4bb6548aa20558a05932ca2b625594d965920b1
   hash_length: 7
   name: fabric8-analytics-release-monitor
   environments:

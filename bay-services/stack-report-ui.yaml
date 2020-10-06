@@ -1,5 +1,5 @@
 services:
-- hash: 8809f75de2e89f9bc3de515d9ef9eae8bbb0849a
+- hash: f5503b2cbe0f2416e3dae6a3f05b29b9496f9690
   hash_length: 7
   name: stack-report-ui
   environments:
