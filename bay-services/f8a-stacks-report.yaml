@@ -72,6 +72,23 @@ services:
       SUFFIX: "dynamic-manifest-weekly"
 
 - <<: *stacks_def
+  name: retraining-weekly
+  environments:
+  - name: staging
+    parameters:
+      MEMORY_REQUEST: "2048Mi"
+      MEMORY_LIMIT: "2048Mi"
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "30 1 * * 1"
+      GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "true"
+      SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
+      SENTRY_API_TAGS: "/api/0/issues/"
+      ENTRY_POINT: "f8a_report/retrain_main.py"
+      SUFFIX: "retraining-weekly"
+
+- <<: *stacks_def
   name: stacks-report-monthly
   environments:
   - name: staging
