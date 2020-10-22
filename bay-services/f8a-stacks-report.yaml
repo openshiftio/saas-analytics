@@ -80,7 +80,7 @@ services:
       MEMORY_LIMIT: "2048Mi"
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
-      CRON_SCHEDULE: "30 3 * * *"
+      CRON_SCHEDULE: "30 3 * * 5"
       GITHUB_CVE_REPO: fabric8-analytics
       GENERATE_MANIFESTS: "true"
       SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
