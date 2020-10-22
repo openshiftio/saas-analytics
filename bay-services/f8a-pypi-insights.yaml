@@ -13,6 +13,7 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
+      MODEL_VERSION: "2020-10-21"
   - name: production
     parameters:
       CPU_REQUEST: 300m
