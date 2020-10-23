@@ -35,7 +35,7 @@ services:
       CPU_LIMIT: 2000m
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 2048Mi
-      REPLICAS: 3
+      REPLICAS: 0
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
       RESTART_POLICY: Always
@@ -46,7 +46,7 @@ services:
       CPU_LIMIT: 1000m
       MEMORY_REQUEST: 1024Mi
       MEMORY_LIMIT: 2048Mi
-      REPLICAS: 1
+      REPLICAS: 0
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-kronos
       RESTART_POLICY: Always
