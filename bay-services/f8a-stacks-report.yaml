@@ -1,9 +1,20 @@
 services:
 - &stacks_def
-  hash: 7fbf579a63e93e351aa9dddb756145811b209268
+  hash: fbe1533b74c667a7996ad2de66c31d2c88ac0899
   hash_length: 7
   name: stacks-report-daily
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "30 0 * * *"
+      GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "false"
+      SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-production/issues/"
+      SENTRY_API_TAGS: "/api/0/issues/"
+      ENTRY_POINT: "f8a_report/stack_report_main.py"
+      SUFFIX: "stacks-report-daily"
   - name: staging
     parameters:
       MEMORY_REQUEST: "2048Mi"
@@ -23,6 +34,17 @@ services:
 - <<: *stacks_def
   name: db-cleanup-daily
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "30 2 * * *"
+      GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "false"
+      SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-production/issues/"
+      SENTRY_API_TAGS: "/api/0/issues/"
+      ENTRY_POINT: "f8a_report/dbtable_cleanup_main.py"
+      SUFFIX: "dbtable-cleanup-daily"
   - name: staging
     parameters:
       MEMORY_REQUEST: "2048Mi"
@@ -40,6 +62,17 @@ services:
 - <<: *stacks_def
   name: snyk-token-validation-daily
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "0 2 * * *"
+      GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "false"
+      SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
+      SENTRY_API_TAGS: "/api/0/issues/"
+      ENTRY_POINT: "f8a_report/snyk_token_validation_main.py"
+      SUFFIX: "snyk-token-validation-daily"
   - name: staging
     parameters:
       MEMORY_REQUEST: "2048Mi"
@@ -57,6 +90,17 @@ services:
 - <<: *stacks_def
   name: dynamic-manifest-weekly
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "30 4 * * 1"
+      GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "false"
+      SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-production/issues/"
+      SENTRY_API_TAGS: "/api/0/issues/"
+      ENTRY_POINT: "f8a_report/manifest_main.py"
+      SUFFIX: "dynamic-manifest-weekly"
   - name: staging
     parameters:
       MEMORY_REQUEST: "2048Mi"
@@ -74,6 +118,17 @@ services:
 - <<: *stacks_def
   name: retraining-weekly
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "30 3 * * 5"
+      GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "true"
+      SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-stage/issues/"
+      SENTRY_API_TAGS: "/api/0/issues/"
+      ENTRY_POINT: "f8a_report/retrain_main.py"
+      SUFFIX: "retraining-weekly"
   - name: staging
     parameters:
       MEMORY_REQUEST: "2048Mi"
@@ -91,6 +146,17 @@ services:
 - <<: *stacks_def
   name: stacks-report-monthly
   environments:
+  - name: production
+    parameters:
+      DOCKER_REGISTRY: quay.io
+      DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-stacks-report
+      CRON_SCHEDULE: "30 13 2 * *"
+      GITHUB_CVE_REPO: fabric8-analytics
+      GENERATE_MANIFESTS: "false"
+      SENTRY_API_ISSUES: "/api/0/projects/sentry/fabric8-analytics-production/issues/"
+      SENTRY_API_TAGS: "/api/0/issues/"
+      ENTRY_POINT: "f8a_report/monthly_stack_report_main.py"
+      SUFFIX: "stacks-report-monthly"
   - name: staging
     parameters:
       MEMORY_REQUEST: "2048Mi"
