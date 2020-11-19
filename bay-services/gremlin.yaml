@@ -1,6 +1,6 @@
 services:
 - &gremlin_def
-  hash: 333989a30667382cc5ff418a13f324055dbc8448
+  hash: b7de11ecad717f8beb1d1d1b21f5cd85658f17e2
   hash_length: 7
   name: gremlin-http
   environments:
