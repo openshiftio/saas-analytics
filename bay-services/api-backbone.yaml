@@ -1,5 +1,5 @@
 services:
-- hash: b939255e5a4a8b1d64fed222d073c75e5ed20579
+- hash: 7fd6b03fed6b05aadbe40f5042a17d91b743ae88
   hash_length: 7
   name: api-backbone
   environments:
@@ -19,7 +19,7 @@ services:
       CPU_LIMIT: 1
       MEMORY_REQUEST: 500Mi
       MEMORY_LIMIT: 512Mi
-      REPLICAS: 3
+      REPLICAS: 2
       FLASK_LOGGING_LEVEL: INFO
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-server-backbone
