@@ -9,11 +9,11 @@ services:
       CPU_REQUEST: 300m
       CPU_LIMIT: 1000m
       MEMORY_REQUEST: 201Mi
-      MEMORY_LIMIT: 512Mi
+      MEMORY_LIMIT: 1024Mi
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      MODEL_VERSION: "2019-01-03"
+      MODEL_VERSION: "2020-10-21"
   - name: production
     parameters:
       CPU_REQUEST: 300m
