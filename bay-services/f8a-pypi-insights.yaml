@@ -1,6 +1,6 @@
 services:
 - &f8a-pypi-insights_def
-  hash: 0ff1098d18ef935396fbf6c872d861039d8ff5ed
+  hash: ec75203eeebbb5bcd1f086d7869545ef02bfab42
   hash_length: 7
   name: f8a-pypi-insights
   environments:
@@ -9,20 +9,20 @@ services:
       CPU_REQUEST: 300m
       CPU_LIMIT: 1000m
       MEMORY_REQUEST: 201Mi
-      MEMORY_LIMIT: 512Mi
+      MEMORY_LIMIT: 700Mi
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      MODEL_VERSION: "2019-01-03"
+      MODEL_VERSION: "2020-10-30"
   - name: production
     parameters:
       CPU_REQUEST: 300m
       CPU_LIMIT: 1000m
       MEMORY_REQUEST: 200Mi
-      MEMORY_LIMIT: 512Mi
+      MEMORY_LIMIT: 700Mi
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      MODEL_VERSION: "2019-01-03"
+      MODEL_VERSION: "2020-10-30"
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-pypi-insights/
