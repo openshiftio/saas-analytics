@@ -10,7 +10,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 700m
       MEMORY_REQUEST: 200Mi
-      MEMORY_LIMIT: 700Mi
+      MEMORY_LIMIT: 1024Mi
       REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
