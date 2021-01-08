@@ -1,6 +1,6 @@
 services:
 - &stacks_def
-  hash: 6b4539ecb6dd904ae37984558f08da7173dc151d
+  hash: 7ce3a4b3311b05b44c9ca234030f8c51d375b7cb
   hash_length: 7
   name: stacks-report-daily
   environments:
