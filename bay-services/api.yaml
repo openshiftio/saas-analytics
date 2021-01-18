@@ -12,7 +12,6 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
       METRICS_ACCUMULATOR_HOST: metrics-accumulator
       METRICS_ACCUMULATOR_PORT: 5200
-      DISABLE_UNKNOWN_PACKAGE_FLOW: 1
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: INFO
