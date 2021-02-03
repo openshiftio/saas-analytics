@@ -14,7 +14,7 @@ services:
       REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
-      MODEL_VERSION: "2019-01-03"
+      MODEL_VERSION: "2020-10-30"
   - name: staging
     parameters:
       HPF_SCORING_REGION: maven
@@ -25,6 +25,6 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
-      MODEL_VERSION: "2019-01-03"
+      MODEL_VERSION: "2020-10-30"
   path: /openshift/template-prod.yaml
   url: https://github.com/fabric8-analytics/f8a-hpf-insights/
