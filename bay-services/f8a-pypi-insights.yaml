@@ -5,6 +5,23 @@ services:
   name: f8a-pypi-insights
   environments:
   - name: staging
+# ** THIS COMMENT BLOCK IS GENERATED AND REPLACED BY AN AUTOMATED SCRIPT; DO NOT UPDATE IT MANUALLY **
+# 
+# - Hyper parameters :: 
+#     deployment: staging
+#     f1_score_at_30: 0.5773970115844186
+#     f1_score_at_50: 0.7479067045829116
+#     latent_factor: 180
+#     maximum_length_of_manifest: 200
+#     minimum_length_of_manifest: 50
+#     model_version: 2021-02-05
+#     precision_at_30: 0.53123456
+#     precision_at_50: 0.70123456
+#     recall_at_30: 0.63234567
+#     recall_at_50: 0.80123456
+# 
+# Criteria for promotion is `current_recall_at_30 >= prev_recall_at_30`
+# 
     parameters:
       CPU_REQUEST: 300m
       CPU_LIMIT: 1000m
@@ -13,7 +30,7 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      MODEL_VERSION: "2020-10-30"
+      MODEL_VERSION: "2021-02-05"
   - name: production
     parameters:
       CPU_REQUEST: 300m
