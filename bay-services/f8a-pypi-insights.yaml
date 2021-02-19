@@ -1,6 +1,5 @@
 services:
-- &f8a-pypi-insights_def
-  hash: ec75203eeebbb5bcd1f086d7869545ef02bfab42
+- hash: ec75203eeebbb5bcd1f086d7869545ef02bfab42
   hash_length: 7
   name: f8a-pypi-insights
   environments:
@@ -13,7 +12,20 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      MODEL_VERSION: "2020-10-30"
+      MODEL_VERSION: '2021-02-19'
+    comments:
+      deployment: staging
+      model_version: '2021-02-19'
+      minimum_length_of_manifest: '2'
+      maximum_length_of_manifest: '100'
+      latent_factor: '40'
+      precision_at_30: '2.1634240462067128e-05'
+      recall_at_30: '0.6956349206349207'
+      f1_score_at_30: '4.326713531657233e-05'
+      precision_at_50: '1.4489909890872867e-05'
+      recall_at_50: '0.7996031746031745'
+      f1_score_at_50: '2.8979294637047302e-05'
+      promotion_criteria: current_recall_at_30 >= deployed_recall_at_30
   - name: production
     parameters:
       CPU_REQUEST: 300m
@@ -23,6 +35,6 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      MODEL_VERSION: "2020-10-30"
+      MODEL_VERSION: '2020-10-30'
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/f8a-pypi-insights/
