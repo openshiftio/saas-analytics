@@ -1,6 +1,5 @@
 services:
-- &f8a-hpf-insights_def
-  hash: 70501a32913b3c20daa137d4d3b4916291561c35
+- hash: 70501a32913b3c20daa137d4d3b4916291561c35
   hash_length: 7
   name: f8a-hpf-insights-maven
   environments:
@@ -14,7 +13,7 @@ services:
       REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
-      MODEL_VERSION: "2019-01-03"
+      MODEL_VERSION: '2019-01-03'
   - name: staging
     parameters:
       HPF_SCORING_REGION: maven
@@ -25,6 +24,19 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
-      MODEL_VERSION: "2019-01-03"
+      MODEL_VERSION: '2020-06-29'
+    comments:
+      deployment: staging
+      model_version: '2020-06-29'
+      minimum_length_of_manifest: '13'
+      maximum_length_of_manifest: '15'
+      latent_factor: '300'
+      precision_at_30: '5.6721497447532616e-05'
+      recall_at_30: '0.33833333333333326'
+      f1_score_at_30: '0.00011342397939371252'
+      precision_at_50: '3.970504821327283e-05'
+      recall_at_50: '0.4133333333333333'
+      f1_score_at_50: '7.940246897769322e-05'
+      promotion_criteria: current_recall_at_30 >= deployed_recall_at_30
   path: /openshift/template-prod.yaml
   url: https://github.com/fabric8-analytics/f8a-hpf-insights/
