@@ -1,5 +1,5 @@
 services:
-- hash: 6e3976e22b7c7570ea56a5d7832368173c96a81f
+- hash: 1bd3789f34a93a200d2d3db6d05b45846f3a30fd
   hash_length: 7
   name: api
   environments:
@@ -12,6 +12,8 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
       METRICS_ACCUMULATOR_HOST: metrics-accumulator
       METRICS_ACCUMULATOR_PORT: 5200
+      STACK_REPORT_UI_HOSTNAME: https://stack-analytics-report.prod-preview.openshift.io
+      THREESCALE_API_URL: https://f8a-analytics-preview-2445582058137.production.gw.apicast.io
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: INFO
@@ -21,5 +23,7 @@ services:
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
       METRICS_ACCUMULATOR_HOST: metrics-accumulator
       METRICS_ACCUMULATOR_PORT: 5200
+      STACK_REPORT_UI_HOSTNAME: https://stack-analytics-report.openshift.io
+      THREESCALE_API_URL: https://f8a-analytics-2445582058137.production.gw.apicast.io
   path: /openshift/template.yaml
   url: https://github.com/fabric8-analytics/fabric8-analytics-server/
