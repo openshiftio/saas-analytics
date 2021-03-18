@@ -7,7 +7,8 @@ services:
     parameters:
       FLASK_LOGGING_LEVEL: INFO
       DOCKER_REGISTRY: quay.io
-      COMPONENT_ANALYSES_LIMIT: 10
+      COMPONENT_ANALYSES_BATCH_SIZE: 10
+      COMPONENT_ANALYSES_CONCURRENCY_LIMIT: 3
       REPLICAS: 2
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
       METRICS_ACCUMULATOR_HOST: metrics-accumulator
