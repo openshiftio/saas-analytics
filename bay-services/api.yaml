@@ -1,5 +1,5 @@
 services:
-- hash: 1bd3789f34a93a200d2d3db6d05b45846f3a30fd
+- hash: f4edec137a72a9a75c9cc85a0c48d29d50ce5a6c
   hash_length: 7
   name: api
   environments:
@@ -18,7 +18,8 @@ services:
   - name: production
     parameters:
       FLASK_LOGGING_LEVEL: INFO
-      COMPONENT_ANALYSES_LIMIT: 10
+      COMPONENT_ANALYSES_BATCH_SIZE: 10
+      COMPONENT_ANALYSES_CONCURRENCY_LIMIT: 8
       REPLICAS: 10
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-bayesian-api
