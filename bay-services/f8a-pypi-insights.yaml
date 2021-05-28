@@ -12,7 +12,20 @@ services:
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
-      MODEL_VERSION: '2020-10-30'
+      MODEL_VERSION: '2021-05-28'
+    comments:
+      deployment: staging
+      model_version: '2021-05-28'
+      minimum_length_of_manifest: '2'
+      maximum_length_of_manifest: '100'
+      latent_factor: '40'
+      precision_at_30: '1.8617195244061368e-05'
+      recall_at_30: '0.5135168650793651'
+      f1_score_at_30: '3.723304063024253e-05'
+      precision_at_50: '1.2076018536688454e-05'
+      recall_at_50: '0.5450148809523809'
+      f1_score_at_50: '2.4151501943061486e-05'
+      promotion_criteria: current_recall_at_30 >= deployed_recall_at_30
   - name: production
     parameters:
       CPU_REQUEST: 300m
