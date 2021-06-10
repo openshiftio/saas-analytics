@@ -15,16 +15,6 @@ services:
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
       MODEL_VERSION: "2019-01-03"
-    comments:
-      deployment: production
-      model_version: "2021-04-30"
-      minimum_length_of_manifest: "13"
-      maximum_length_of_manifest: "15"
-      latent_factor: "300"
-      precision_at_30: "0.15242771649001371"
-      recall_at_30: "0.610481856218137"
-      f1_score_at_30: "0.243945963"
-      promotion_criteria: current_recall_at_30 >= deployed_recall_at_30
   - name: staging
     parameters:
       HPF_SCORING_REGION: maven
@@ -36,15 +26,5 @@ services:
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
       MODEL_VERSION: "2019-01-03"
-    comments:
-      deployment: staging
-      model_version: "2021-04-30"
-      minimum_length_of_manifest: "13"
-      maximum_length_of_manifest: "15"
-      latent_factor: "300"
-      precision_at_30: "0.15242771649001371"
-      recall_at_30: "0.610481856218137"
-      f1_score_at_30: "0.243945963"
-      promotion_criteria: current_recall_at_30 >= deployed_recall_at_30
   path: /openshift/template-prod.yaml
   url: https://github.com/fabric8-analytics/f8a-hpf-insights/
