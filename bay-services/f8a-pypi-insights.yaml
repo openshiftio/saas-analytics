@@ -1,5 +1,5 @@
 services:
-- hash: bd164c97e43f854c45643fa2c3e5f8361fea3102
+- hash: 0942569c59a983ada8d23f55eee147c69ab53788
   hash_length: 7
   name: f8a-pypi-insights
   environments:
@@ -7,12 +7,25 @@ services:
     parameters:
       CPU_REQUEST: 300m
       CPU_LIMIT: 1000m
-      MEMORY_REQUEST: 201Mi
+      MEMORY_REQUEST: 200Mi
       MEMORY_LIMIT: 700Mi
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-f8a-pypi-insights
       MODEL_VERSION: '2020-10-30'
+    comments:
+      deployment: staging
+      model_version: '2020-10-30'
+      minimum_length_of_manifest: '2'
+      maximum_length_of_manifest: '100'
+      latent_factor: '40'
+      precision_at_30: '0.00001559324762077222'
+      recall_at_30: '0.4735294117647059'
+      f1_score_at_30: '0.000031185'
+      precision_at_50: '0.000011468582121084083'
+      recall_at_50: '0.5300653594771242'
+      f1_score_at_50: '0.000022937'
+      promotion_criteria: current_recall_at_30 >= deployed_recall_at_30
   - name: production
     parameters:
       CPU_REQUEST: 300m
