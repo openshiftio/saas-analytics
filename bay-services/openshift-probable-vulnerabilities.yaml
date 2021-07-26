@@ -5,9 +5,9 @@ services:
   environments:
   - name: staging
     parameters:
-      REPLICAS: 1
+      REPLICAS: 0
   - name: production
     parameters:
-      REPLICAS: 1
+      REPLICAS: 0
   path: /deployment/template-cronjob.yaml
   url: https://github.com/kubesecurity/openshift-probable-vulnerabilities/
