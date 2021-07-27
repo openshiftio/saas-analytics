@@ -1,5 +1,5 @@
 services:
-- hash: d658a106ef51935d2de52630dce29763b8444e46
+- hash: 4d29f7aedd4c108f45f3d62d8baa5732f4f0b321
   hash_length: 7
   name: fabric8-analytics-pgbouncer
   environments:
@@ -7,6 +7,7 @@ services:
     parameters:
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-bayesian-coreapi-pgbouncer
+      PGBOUNCER_DEFAULT_POOL_SIZE: 500
   - name: staging
     parameters:
       DOCKER_REGISTRY: quay.io
