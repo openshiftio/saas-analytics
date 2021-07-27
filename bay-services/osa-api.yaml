@@ -5,12 +5,12 @@ services:
   environments:
   - name: staging
     parameters:
-      REPLICAS: 3
+      REPLICAS: 0
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/osa-api-server
   - name: production
     parameters:
-      REPLICAS: 3
+      REPLICAS: 0
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/osa-api-server
   path: /openshift/template.yaml
