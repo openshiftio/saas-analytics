@@ -1,6 +1,6 @@
 services:
 - &f8a-hpf-insights_def
-  hash: 70501a32913b3c20daa137d4d3b4916291561c35
+  hash: 9e1d6465f06e9d9442847e1c89898759196043c3
   hash_length: 7
   name: f8a-hpf-insights-maven
   environments:
@@ -10,7 +10,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 700m
       MEMORY_REQUEST: 200Mi
-      MEMORY_LIMIT: 700Mi
+      MEMORY_LIMIT: 1024Mi
       REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
@@ -21,7 +21,7 @@ services:
       CPU_REQUEST: 100m
       CPU_LIMIT: 700m
       MEMORY_REQUEST: 200Mi
-      MEMORY_LIMIT: 700Mi
+      MEMORY_LIMIT: 1024Mi
       REPLICAS: 1
       DOCKER_REGISTRY: quay.io
       RESTART_POLICY: Always
