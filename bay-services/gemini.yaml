@@ -9,7 +9,7 @@ services:
       MEMORY_LIMIT: 512Mi
       CPU_REQUEST: 125m
       CPU_LIMIT: 500m
-      REPLICAS: 0
+      REPLICAS: 3
       DOCKER_REGISTRY: quay.io
       DOCKER_IMAGE: openshiftio/rhel-fabric8-analytics-fabric8-gemini-server
   - name: staging
